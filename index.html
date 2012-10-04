@@ -35,15 +35,13 @@
 
 <p>admob for flash is a free ane lib for flash developer.it enable flash mobile application load admob advertising. it is easy to use.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
 <h3>Requirements</h3>
 
-<p>flash air sdk 3.1 or higher,iPhone or iPad devices
-Recommend flash builder 4.7 </p>
+<p>flash air sdk 3.1 or higher,</p>
+
+<p>iPhone or iPad devices</p>
+
+<p>Recommend flash builder 4.7 </p>
 
 <h3>mark</h3>
 
@@ -52,18 +50,59 @@ Recommend flash builder 4.7 </p>
 <h3>useage</h3>
 
 <p>ref://<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate">https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate</a>
-ref://<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/smart-banners">https://developers.google.com/mobile-ads-sdk/docs/admob/smart-banners</a>
-                        var ad:Admob=Admob.getInstance();
+ref://<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/smart-banners">https://developers.google.com/mobile-ads-sdk/docs/admob/smart-banners</a></p>
+
+<pre><code>var ad:Admob=Admob.getInstance();
+ if(ad.isSupported){
+   ad.setUnitId(gid);
+   ad.setAdType(AdType.kGADAdSizeBanner);
+   ad.setPosition(0,100);
+   ad.setIsLandscape(true);
+   ad.addToDisplayList();
+   ad.refresh();
+ }else{
+   trace("not support");
+ }
+</code></pre>
+
+<h3>useage  detail</h3>
+
+<pre><code>package
+{
+    import flash.display.Sprite;
+    import so.cuo.anes.admob.AdType;
+    import so.cuo.anes.admob.Admob;
+    [SWF(width="640", height="960", frameRate="60", backgroundColor="#cccccc")]
+    public class AdmobTestSimple extends Sprite
+    {
+    //a14fde93a405e01为admob的app id，可以上www.admob.com注册获取
+        private var gid:String="a14fde93a405e01";
+        public function AdmobTestSimple()
+        {
+            super();
+            //获取Admob引用
+            var ad:Admob=Admob.getInstance();
+            //测试功能在当前运行环境是否可用
             if(ad.isSupported){
+            //设置广告id
                 ad.setUnitId(gid);
+                //设置广告尺寸类型，可以参考google网址上面对尺寸的说明
                 ad.setAdType(AdType.kGADAdSizeBanner);
+                //设置广告显示位置
                 ad.setPosition(0,100);
+                //设置是横向广告还是竖向广告
                 ad.setIsLandscape(true);
+                //把广告添加到显示列表，和sprite.addChild(displayObject)功能类似。
                 ad.addToDisplayList();
+                //刷新广告，调用一次就可以。无需定时进行
                 ad.refresh();
             }else{
                 trace("not support");
-            }</p>
+            }
+        }
+    }
+}
+</code></pre>
 
 <h3>Support or Contact</h3>
 
