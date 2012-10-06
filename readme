@@ -1,2 +1,20 @@
-admob for flash  is a lib for user want to ad advertising in their air iOS mobile application.
+
+            admob for actionscript(as3) application
+admob for flash  is a lib for user want to add advertising in their air iOS mobile application.
 it content   all type of banner advertising and type of full screen. and more,user can set position ,set ad for landscape or portrait. and it is ease to use in flash builder.
+
+
+e.
+
+			var ad:Admob=Admob.getInstance();
+if(ad.isSupported){
+				ad.setUnitId(gid);
+				ad.isTesting=true;
+			//https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate
+			//https://developers.google.com/mobile-ads-sdk/docs/admob/smart-banners
+			ad.setAdType(AdType.kGADAdSizeBanner);
+			ad.setPosition(0,100);
+			ad.setIsLandscape(true);
+			ad.addToDisplayList();
+			ad.refresh();
+}
