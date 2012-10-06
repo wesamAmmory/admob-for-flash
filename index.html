@@ -4,7 +4,7 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Admob-for-flash : admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising" />
+    <meta name="description" content="Admob-for-flash : admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising。show actionscript 3 load advertising" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/lilili87222/admob-for-flash">View on GitHub</a>
 
           <h1 id="project_title">Admob-for-flash</h1>
-          <h2 id="project_tagline">admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising</h2>
+          <h2 id="project_tagline">admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising。show actionscript 3 load advertising</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/lilili87222/admob-for-flash/zipball/master">Download this project as a .zip file</a>
@@ -75,26 +75,26 @@ ref://<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/smart-ban
     [SWF(width="640", height="960", frameRate="60", backgroundColor="#cccccc")]
     public class AdmobTestSimple extends Sprite
     {
-    //a14fde93a405e01为admob的app id，可以上www.admob.com注册获取
+    //a14fde93a405e01  is   admob    app id，login to www.admob.com for more info
         private var gid:String="a14fde93a405e01";
         public function AdmobTestSimple()
         {
             super();
-            //获取Admob引用
+            //create admob instance 
             var ad:Admob=Admob.getInstance();
-            //测试功能在当前运行环境是否可用
+            //test if this lib work on current runtime
             if(ad.isSupported){
-            //设置广告id
+            //set google admob id
                 ad.setUnitId(gid);
-                //设置广告尺寸类型，可以参考google网址上面对尺寸的说明
+                //set size of admob,please ref tohttps://developers.google.com/mobile-ads-sdk/docs/admob/intermediate for more info about size
                 ad.setAdType(AdType.kGADAdSizeBanner);
-                //设置广告显示位置
+                //set the position of ad view.
                 ad.setPosition(0,100);
-                //设置是横向广告还是竖向广告
+                //set if show ad landscape,if true,ad will show as landscape mode
                 ad.setIsLandscape(true);
-                //把广告添加到显示列表，和sprite.addChild(displayObject)功能类似。
+                //add to displayobject tree ,just as sprite.addChild(displayObject)
                 ad.addToDisplayList();
-                //刷新广告，调用一次就可以。无需定时进行
+                //load ad
                 ad.refresh();
             }else{
                 trace("not support");
@@ -107,6 +107,8 @@ ref://<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/smart-ban
 <h3>Support or Contact</h3>
 
 <p><a href="mailto:javaflashproject@gmail.com">javaflashproject@gmail.com</a> for help</p>
+
+<p>qq群：56892018</p>
       </section>
     </div>
 
