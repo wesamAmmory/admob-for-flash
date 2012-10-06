@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Admob,so.cuo.anes.admob.Admob,AD_CLICKED,AD_ERROR,AD_LEAVE,AD_RECEIVED,adViewDidDismissScreen,adViewWillDismissScreen,dispatcher,full_didFailToReceiveAdWithError,full_interstitialDidDismissScreen,full_interstitialDidReceiveAd,full_interstitialWillDismissScreen,full_interstitialWillLeaveApplication,full_interstitialWillPresentScreen,isSupported,isTesting,kGADAdSizeBanner,kGADAdSizeFullBanner,kGADAdSizeInvalid,kGADAdSizeLeaderboard,kGADAdSizeMediumRectangle,kGADAdSizeSkyscraper,kGADAdSizeSmartBannerLandscape,kGADAdSizeSmartBannerPortrait,addFullToDisplayList,addToDisplayList,destroyFull,dispose,getInstance,getUUID,loadFull,refresh,removeFromDisplayList,removeFullFromDisplayList,setAdType,setIsLandscape,setPosition,setUnitId,setVisible"><title>so.cuo.anes.admob.Admob</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Admob - API Documentation';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">API Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?so/cuo/anes/admob/Admob.html&amp;so/cuo/anes/admob/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Admob</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Admob"); titleBar_setSubNav(false,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">so.cuo.anes.admob</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Admob</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Admob  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+main class of this lib
+example
+package
+{
+	import flash.display.Sprite;
+	
+	import so.cuo.anes.admob.AdType;
+	import so.cuo.anes.admob.Admob;
+	[SWF(width="640", height="960", frameRate="60", backgroundColor="#cccccc")]
+	public class AdmobTestSimple extends Sprite
+	{
+		private var gid:String="a14fde93a405e01";
+		public function AdmobTestSimple()
+		{
+			super();
+			var ad:Admob=Admob.getInstance();
+			if(ad.isSupported){
+				ad.setUnitId(gid);
+				//https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate
+				//https://developers.google.com/mobile-ads-sdk/docs/admob/smart-banners
+				ad.setAdType(AdType.kGADAdSizeBanner);
+				ad.setPosition(0,100);
+				ad.setIsLandscape(true);
+				ad.addToDisplayList();
+				ad.refresh();
+			}else{
+				trace("not support");
+			}
+		}
+	}
+}
+<p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#dispatcher" class="signatureLink">dispatcher</a> : EventDispatcher<div class="summaryTableDescription">[read-only] 
+ad event dispatcher ,if you want to handle ad event  
+dmob.getInstance().dispatcher.addEventListener(NativeAdsEvent.AD_CLICKED,clickAdHandler);
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[read-only] 
+test if this lib work on this platform
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isTesting" class="signatureLink">isTesting</a> : Boolean<div class="summaryTableDescription">[write-only] 
+et is testing mode.if you are debug and test your app,set true.if ready to upload to app store  set false
+dmob.getInstance().isTesting=true;
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Admob()" class="signatureLink">Admob</a>()</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addFullToDisplayList()" class="signatureLink">addFullToDisplayList</a>():void</div><div class="summaryTableDescription">
+		 add full screen ad to displaylist after ad receive
+		 </div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addToDisplayList()" class="signatureLink">addToDisplayList</a>():void</div><div class="summaryTableDescription">
+dd ad to display tree .just like sprite.addChild(displayObject);
+dmob.getInstance().addToDisplayList();
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#destroyFull()" class="signatureLink">destroyFull</a>():void</div><div class="summaryTableDescription">
+		 stop load full screen ad
+		 </div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dispose()" class="signatureLink">dispose</a>():void</div><div class="summaryTableDescription">
+emove this lib from memory
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getInstance()" class="signatureLink">getInstance</a>():<a href="../../../../so/cuo/anes/admob/Admob.html">Admob</a></div><div class="summaryTableDescription">[static] 
+init and return admob instance
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getUUID()" class="signatureLink">getUUID</a>():Object</div><div class="summaryTableDescription">
+eturn this divice uuid and mac address 
+dmob.getInstance().getUUID();
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#loadFull()" class="signatureLink">loadFull</a>():void</div><div class="summaryTableDescription">
+		 send a full screen ad request.ad will not visible.until call addFullToDisplayList
+		 </div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#refresh()" class="signatureLink">refresh</a>():void</div><div class="summaryTableDescription">
+oad Ad.</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removeFromDisplayList()" class="signatureLink">removeFromDisplayList</a>():void</div><div class="summaryTableDescription">
+emove ad from display tree .just like sprite.removeChild(displayObject);
+dmob.getInstance().removeFromDisplayList();
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removeFullFromDisplayList()" class="signatureLink">removeFullFromDisplayList</a>():void</div><div class="summaryTableDescription">
+		 remove full sreen ad from displaylist
+		 </div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setAdType()" class="signatureLink">setAdType</a>(type:uint):void</div><div class="summaryTableDescription">
+et ad size type.the type value is value of AdType
+dmob.getInstance().setAdType(AdType.kGADAdSizeMediumRectangle);
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setIsLandscape()" class="signatureLink">setIsLandscape</a>(b:Boolean):void</div><div class="summaryTableDescription">
+et ad landscape if b==true.else portrat b=false
+	Admob.getInstance().setIsLandscape(false);
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setPosition()" class="signatureLink">setPosition</a>(x:Number, y:Number):void</div><div class="summaryTableDescription">
+et the position of ad
+dmob.getInstance().setPosition(0,100);
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setUnitId()" class="signatureLink">setUnitId</a>(unitId:String):void</div><div class="summaryTableDescription">
+et the google admob app id.</div></td><td class="summaryTableOwnerCol">Admob</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setVisible()" class="signatureLink">setVisible</a>(b:Boolean):void</div><div class="summaryTableDescription">
+et ad visible attribute .just like sprite.visible=true;
+dmob.getInstance().setVisible(true);
+</div></td><td class="summaryTableOwnerCol">Admob</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="dispatcher"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dispatcher</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>dispatcher:EventDispatcher</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+ad event dispatcher ,if you want to handle ad event  
+dmob.getInstance().dispatcher.addEventListener(NativeAdsEvent.AD_CLICKED,clickAdHandler);
+</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get dispatcher():EventDispatcher</code><br/></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+test if this lib work on this platform
+</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="isTesting"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isTesting</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isTesting:Boolean</code>&nbsp;&nbsp;[write-only] <p></p><p></p><p>
+et is testing mode.if you are debug and test your app,set true.if ready to upload to app store  set false
+dmob.getInstance().isTesting=true;
+</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isTesting(value:Boolean):void</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Admob()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Admob</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Admob()</code><p></p><br/><br/></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="addFullToDisplayList()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addFullToDisplayList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function addFullToDisplayList():void</code><p></p><p></p><p>
+		 add full screen ad to displaylist after ad receive
+		 </p></div><a name="addToDisplayList()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addToDisplayList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function addToDisplayList():void</code><p></p><p></p><p>
+dd ad to display tree .just like sprite.addChild(displayObject);
+dmob.getInstance().addToDisplayList();
+</p></div><a name="destroyFull()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">destroyFull</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function destroyFull():void</code><p></p><p></p><p>
+		 stop load full screen ad
+		 </p></div><a name="dispose()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dispose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dispose():void</code><p></p><p></p><p>
+emove this lib from memory
+</p></div><a name="getInstance()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getInstance</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function getInstance():<a href="../../../../so/cuo/anes/admob/Admob.html">Admob</a></code><p></p><p></p><p>
+init and return admob instance
+</p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../so/cuo/anes/admob/Admob.html">Admob</a></code></td></tr></table></div><a name="getUUID()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getUUID</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getUUID():Object</code><p></p><p></p><p>
+eturn this divice uuid and mac address 
+dmob.getInstance().getUUID();
+</p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Object</code></td></tr></table></div><a name="loadFull()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">loadFull</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function loadFull():void</code><p></p><p></p><p>
+		 send a full screen ad request.ad will not visible.until call addFullToDisplayList
+		 </p></div><a name="refresh()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">refresh</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function refresh():void</code><p></p><p></p><p>
+oad Ad.
+dmob.getInstance().refresh();
+</p></div><a name="removeFromDisplayList()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removeFromDisplayList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removeFromDisplayList():void</code><p></p><p></p><p>
+emove ad from display tree .just like sprite.removeChild(displayObject);
+dmob.getInstance().removeFromDisplayList();
+</p></div><a name="removeFullFromDisplayList()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removeFullFromDisplayList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removeFullFromDisplayList():void</code><p></p><p></p><p>
+		 remove full sreen ad from displaylist
+		 </p></div><a name="setAdType()"></a><a name="setAdType(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setAdType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setAdType(type:uint):void</code><p></p><p></p><p>
+et ad size type.the type value is value of AdType
+dmob.getInstance().setAdType(AdType.kGADAdSizeMediumRectangle);
+</p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">type</span>:uint</code></td></tr></table></p></div><a name="setIsLandscape()"></a><a name="setIsLandscape(Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setIsLandscape</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setIsLandscape(b:Boolean):void</code><p></p><p></p><p>
+et ad landscape if b==true.else portrat b=false
+	Admob.getInstance().setIsLandscape(false);
+</p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">b</span>:Boolean</code></td></tr></table></p></div><a name="setPosition()"></a><a name="setPosition(Number,Number)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setPosition</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setPosition(x:Number, y:Number):void</code><p></p><p></p><p>
+et the position of ad
+dmob.getInstance().setPosition(0,100);
+</p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">x</span>:Number</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">y</span>:Number</code></td></tr></table></p></div><a name="setUnitId()"></a><a name="setUnitId(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setUnitId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setUnitId(unitId:String):void</code><p></p><p></p><p>
+et the google admob app id.
+dmob.getInstance().setUnitId("a14fde93a405e01");
+</p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">unitId</span>:String</code></td></tr></table></p></div><a name="setVisible()"></a><a name="setVisible(Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setVisible</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setVisible(b:Boolean):void</code><p></p><p></p><p>
+et ad visible attribute .just like sprite.visible=true;
+dmob.getInstance().setVisible(true);
+</p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">b</span>:Boolean</code></td></tr></table></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Sat Oct 6 2012, 09:38 PM +08:00  </center></div></body></html><!--<br/>Sat Oct 6 2012, 09:38 PM +08:00  -->
