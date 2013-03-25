@@ -44,74 +44,52 @@ user can set postion of ad</p>
 
 <h3>Requirements</h3>
 
-<p>flash air sdk 3.1 or higher,</p>
+<p>flash air sdk 3.5 or higher,</p>
 
-<p>iPhone or iPad devices</p>
-
-<p>Recommend flash builder 4.7 </p>
+<p>iPhone or iPad or android devices </p>
 
 <h3>mark</h3>
 
-<p>this lib do not work on pc and Simulator，but well on device</p>
+<p>this lib do not work on pc and Simulator，but you can pack and debug on pc.and  show a  well on device</p>
 
 <h3>download</h3>
 
-<p><a href="https://github.com/lilili87222/admob-for-flash/tarball/master">https://github.com/lilili87222/admob-for-flash/tarball/master</a></p>
+<p><a href="http://flash-air-admob-ane-for-ios.googlecode.com/files/admob_ios_android_ane6.3.zip">http://flash-air-admob-ane-for-ios.googlecode.com/files/admob_ios_android_ane6.3.zip</a> </p>
 
 <h3>useage</h3>
 
-<p>if you use build app on mac and has Xcode 4.5.   you can use admob.ane 6.2 it build base on admob sdk 6.2. it need adsupport framework. if you build app on window or old version of Xcode .use admob.ane .it base on admob sdk 6.1</p>
+<p>you can use this lib on pc and mac ,build for android or ios air application with flash bulder or flash cs or flash develop.just do like this</p>
 
-<pre><code>var ad:Admob=Admob.getInstance();
- if(ad.isSupported){
-   ad.setUnitId(gid);
-   ad.setAdType(AdType.kGADAdSizeBanner);
-   ad.setPosition(0,100);
-   ad.setIsLandscape(true);
-   ad.addToDisplayList();
-   ad.refresh();
- }else{
-   trace("not support");
- }
+<pre><code>var admob:Admob=Admob.getInstance();
+if (admob.isSupported)
+{
+    admob.createADView(AdSize.BANNER, "a1514bcdferve3437"); //create a banner ad view.this init the view 
+    admob.addToStage(0, 0); // ad to displaylist position 0,0
+    admob.load(false); // send a ad request.  
+}
 </code></pre>
+
+<p>for android.  you need add in application-app.xml
+</p>
 
 <h3>useage  detail</h3>
 
-<pre><code>package
-{
-    import flash.display.Sprite;
-    import so.cuo.anes.admob.AdType;
-    import so.cuo.anes.admob.Admob;
-    [SWF(width="640", height="960", frameRate="60", backgroundColor="#cccccc")]
-    public class AdmobTestSimple extends Sprite
-    {
-    //a14fde93a405e01  is   admob    app id，login to www.admob.com for more info
-        private var gid:String="a14fde93a405e01";
-        public function AdmobTestSimple()
-        {
-            super();
-            //create admob instance 
-            var ad:Admob=Admob.getInstance();
-            //test if this lib work on current runtime
-            if(ad.isSupported){
-            //set google admob id
-                ad.setUnitId(gid);
-                //set size of admob,please ref tohttps://developers.google.com/mobile-ads-sdk/docs/admob/intermediate for more info about size
-                ad.setAdType(AdType.kGADAdSizeBanner);
-                //set the position of ad view.
-                ad.setPosition(0,100);
-                //set if show ad landscape,if true,ad will show as landscape mode
-                ad.setIsLandscape(true);
-                //add to displayobject tree ,just as sprite.addChild(displayObject)
-                ad.addToDisplayList();
-                //load ad
-                ad.refresh();
-            }else{
-                trace("not support");
-            }
-        }
-    }
-}
+<pre><code>more function
+1. handler  ad event  like this.
+admob.dispatcher.addEventListener(AdEvent.onReceiveAd,onAdEvent);
+2. get ad size info
+admob.getAdSize()
+3.get screen size info
+admob.getScreenSize()
+4. get mac address or device id of device
+admob.getMacAddress()
+
+
+update:
+1.include ios and android in one file
+2.enable debug and pack on pc
+3.base on admob6.3 no more use udid
+4.enable get ad size info and screen size info
 </code></pre>
 
 <h3>Support or Contact</h3>
