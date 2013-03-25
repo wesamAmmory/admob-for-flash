@@ -1,5 +1,5 @@
 admob for flash 
-ref:http://code.google.com/p/flash-for-mobile/
+project has moved to google code http://code.google.com/p/flash-for-mobile/
 admob_all_in_one.ane      contains admob for ios and for android,file size is large,but more convenient
 admob_android.ane         just contains admob for android, file size is small
 admob_ios.ane           just contains admob for ios,file size is small
