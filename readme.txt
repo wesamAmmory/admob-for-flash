@@ -1,5 +1,9 @@
 admob for flash 
 project enable you to ad admob ad in flash air mobile application android and ios include banner and Interstitial and it easy to use
+
+download:https://github.com/lilili87222/admob-for-flash/blob/master/admob_ane_ios_android_6.4.2.7z
+project:https://github.com/lilili87222/admob-for-flash
+
 admob_all_in_one.ane      contains admob for ios and for android,file size is large,but more convenient
 admob_android.ane         just contains admob for android, file size is small
 admob_ios.ane           just contains admob for ios,file size is small
