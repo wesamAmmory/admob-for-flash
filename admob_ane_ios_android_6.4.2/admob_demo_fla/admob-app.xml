@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<application xmlns="http://ns.adobe.com/air/application/3.5">
+    <id>admob</id>
+    <versionNumber>1.0</versionNumber>
+    <filename>admob</filename>
+    <description></description>
+    <!-- To localize the description, use the following format for the description element.
+	<description>
+		<text xml:lang="en">English App description goes here</text>
+		<text xml:lang="fr">French App description goes here</text>
+		<text xml:lang="ja">Japanese App description goes here</text>
+	</description>
+	-->
+    <name>admob</name>
+    <!-- To localize the name, use the following format for the name element.
+	<name>
+		<text xml:lang="en">English App name goes here</text>
+		<text xml:lang="fr">French App name goes here</text>
+		<text xml:lang="ja">Japanese App name goes here</text>
+	</name>
+	-->
+    <copyright></copyright>
+    <initialWindow>
+        <content>admob.swf</content>
+        <systemChrome>standard</systemChrome>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <fullScreen>false</fullScreen>
+        <autoOrients>false</autoOrients>
+        <aspectRatio>portrait</aspectRatio>
+        <renderMode>auto</renderMode>
+    </initialWindow>
+    <customUpdateUI>false</customUpdateUI>
+    <allowBrowserInvocation>false</allowBrowserInvocation>
+    <icon></icon>
+    <android>
+        <manifestAdditions><![CDATA[			<manifest android:installLocation="auto">				<uses-sdk android:targetSdkVersion="11"/>				<uses-sdk android:minSdkVersion="8"/>			    <uses-permission android:name="android.permission.INTERNET"/>			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>			    <application>			   <!--  <activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> -->			  	 <activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/> 				</application>			</manifest>					]]></manifestAdditions>
+    </android>
+    <iPhone>
+        <requestedDisplayResolution>standard</requestedDisplayResolution>
+        <InfoAdditions><![CDATA[<key>UIDeviceFamily</key><array><string>1</string><string>2</string></array>]]></InfoAdditions>
+    </iPhone>
+    <extensions>
+        <extensionID>so.cuo.ane.Admob</extensionID>
+    </extensions>
+</application>
