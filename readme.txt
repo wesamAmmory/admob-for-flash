@@ -1,4 +1,5 @@
-#  admob for flash 
+# Admob for flash 
+
 ref:http://code.google.com/p/flash-for-mobile/
 admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient
 ref: www.admob.com
