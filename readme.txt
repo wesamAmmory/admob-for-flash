@@ -1,23 +1,34 @@
 admob for flash 
-project enable you to ad admob ad in flash air mobile application android and ios include banner and Interstitial and it easy to use
-
-download:https://github.com/lilili87222/admob-for-flash/blob/master/admob_ane_ios_android_6.4.2.7z
-project:https://github.com/lilili87222/admob-for-flash
-
-admob_all_in_one.ane      contains admob for ios and for android,file size is large,but more convenient
-admob_android.ane         just contains admob for android, file size is small
-admob_ios.ane           just contains admob for ios,file size is small
-build base on admob ios 6.3.3 and android 6.3.1
+ref:http://code.google.com/p/flash-for-mobile/
+admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient
 ref: www.admob.com
-requred  air sdk 3.5
-usage:
+requred  air sdk 3.5 or later
+
+admob ane for air mobile ad ,support Interstitial and Banner<p/>
+support  landscape and portrait  and autoOrient<p/>
+support ios 5, ios 6, ios 7 ,and android<p/>
+support all native event<p/>
+base on admob ios sdk 6.6.0 and admob android sdk 6.4.1<p/>
+air sdk 3.5 <p/>
+
+very easy to use ,just three line code for simple usage<p/>
+simple banner usage:
+var admob:Admob=Admob.getInstance();<p/>
+admob.setBannerKeys("a152834c2b8cce6");<p/>
+admob.showBanner(Admob.BANNER,AdPosition.BOTTOM_CENTER);<p/>
+
+usage  Interstitial ad (full screen ad)
 var admob:Admob=Admob.getInstance();
-if (admob.isSupported)
+admob.setInterstitialKeys("a152834c8723912");
+if (admob.isInterstitialReady())// check ad has cached ,if true show it
 {
-	admob.createADView(AdSize.BANNER, "a1514bcdferve3437"); //create a banner ad view.this init the view 
-	admob.addToStage(0, 0); // ad to displaylist position 0,0
-	admob.load(false); // send a ad request.  
+     admob.showInterstitial();
 }
+else
+{
+    admob.cacheInterstitial();
+}
+
 
 for android.  you need add in application-app.xml
 <manifest android:installLocation="auto">
@@ -34,15 +45,26 @@ for android.  you need add in application-app.xml
 
 more function
 1. handler  ad event  like this.
-admob.dispatcher.addEventListener(AdEvent.onReceiveAd,onAdEvent);
+admob.addEventListener(AdEvent.onBannerReceive, onAdReceived);
 2. get ad size info
-admob.getAdSize()
-3.get screen size info
+protected function onAdReceived(event:AdEvent):void
+{
+if(event.type==AdEvent.onBannerReceive){
+	trace(event.data.width,event.data.height);
+}
+}
+3.get screen size info,old version function,not include any more in this version
 admob.getScreenSize()
-4. get mac address or device id of device
+4. get mac address or device id of device  ,old version function,not include any more in this version
 admob.getMacAddress()
-
-
+6.6.0
+1.support  landscape and portrait  and autoOrient
+2.support relation position and Absolute position
+3.support ios 5, ios 6, ios 7 ,and android
+4.update admob sdk to last version
+6.4.1
+enable Interstitial admob ad 
+6.3.1
 update:
 1.include ios and android in one file
 2.enable debug and pack on pc
