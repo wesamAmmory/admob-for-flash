@@ -9,9 +9,9 @@ package
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
 	
-	import so.cuo.platform.ad.AdEvent;
-	import so.cuo.platform.ad.AdSize;
 	import so.cuo.platform.admob.Admob;
+	import so.cuo.platform.admob.AdmobEvent;
+	import so.cuo.platform.admob.AdmobSize;
 	
 	public class demo extends Sprite
 	{ 
@@ -39,11 +39,11 @@ package
 			
 			admob= Admob.getInstance();
 			if(admob.supportDevice){
-				admob.setTesting(did);
+//				admob.setTesting(did);
 				admob.setBannerKeys(this.ios_banner);
 				admob.setInterstitialKeys(this.ios_full);
-				admob.addEventListener(AdEvent.onInterstitialReceive,onAdReceived);
-				admob.addEventListener(AdEvent.onBannerReceive,onAdReceived);
+				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
+				admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
 			}
 		}
 		
@@ -99,7 +99,7 @@ package
 				var xv:int=parseInt(xkey.text);
 				var yv:int=parseInt(ykey.text);
 				var size:int=parseInt(typekey.text);
-				var adsize:AdSize;
+				var adsize:AdmobSize;
 				if(size==1){
 					adsize=Admob.BANNER;
 				}
@@ -119,7 +119,7 @@ package
 					adsize=Admob.IAB_LEADERBOARD;
 				}
 				if(adsize==null){
-					adsize=new AdSize(320,50);
+					adsize=new  AdmobSize(320,50);
 				}
 				if(text==this.hideSubmitButton){
 					admob.hideBanner();
@@ -134,8 +134,11 @@ package
 				}
 				else if(text==this.interstitialSubmitButton){
 					if(admob.isInterstitialReady()){
+//						trace("flash showInterstitial");
+						admob.hideBanner();
 						admob.showInterstitial();
 					}else{
+//						trace("flash cacheInterstial");
 						admob.cacheInterstitial();
 					}
 				}
@@ -147,13 +150,14 @@ package
 			trace(event.type);
 		}
 		
-		protected function onAdReceived(event:AdEvent):void
+		protected function onAdReceived(event:AdmobEvent):void
 		{
-			if(event.type==AdEvent.onBannerReceive){
+			if(event.type==AdmobEvent.onBannerReceive){
 				trace(event.data.width,event.data.height);
 			}
-			if(event.type==AdEvent.onInterstitialReceive){
-				admob.showInterstitial();
+			if(event.type==AdmobEvent.onInterstitialReceive){
+//				trace("flash showInterstitial");
+//				admob.showInterstitial();
 			}
 		}
 		
