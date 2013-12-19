@@ -40,8 +40,8 @@ package
 			admob= Admob.getInstance();
 			if(admob.supportDevice){
 //				admob.setTesting(did);
-				admob.setBannerKeys(this.ios_banner);
-				admob.setInterstitialKeys(this.ios_full);
+//				admob.setBannerKeys(this.ios_banner);
+				admob.setInterstitialKeys("a152af025a3526b");
 				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
 				admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
 			}

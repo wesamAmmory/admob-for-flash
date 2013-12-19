@@ -2,8 +2,9 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
-	import so.cuo.platform.ad.AdEvent;
+	
 	import so.cuo.platform.admob.Admob;
+	import so.cuo.platform.admob.AdmobEvent;
 
 	public class EventDemo extends Sprite
 	{
@@ -15,8 +16,8 @@ package
 			if (admob.supportDevice)
 			{
 				admob.setInterstitialKeys("a152834c8723912");//Interstitial and banner use the same key
-				admob.addEventListener(AdEvent.onBannerFailedReceive, onAdReceived);
-				admob.addEventListener(AdEvent.onBannerReceive, onAdReceived);
+				admob.addEventListener(AdmobEvent.onBannerFailedReceive, onAdReceived);
+				admob.addEventListener(AdmobEvent.onBannerReceive, onAdReceived);
 			}
 			stage.addEventListener(MouseEvent.CLICK, clickStage);
 		}
@@ -34,7 +35,7 @@ package
 			}
 		}
 
-		protected function onAdReceived(event:AdEvent):void
+		protected function onAdReceived(event:AdmobEvent):void
 		{
 			trace(event.type, event.data);
 		}

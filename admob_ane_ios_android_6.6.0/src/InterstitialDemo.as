@@ -1,8 +1,9 @@
 package
 {
 	import flash.display.Sprite;
+	
 	import so.cuo.platform.admob.Admob;
-	import so.cuo.platform.ad.AdEvent;
+	import so.cuo.platform.admob.AdmobEvent;
 	
 	public class InterstitialDemo extends Sprite
 	{
@@ -12,13 +13,13 @@ package
 			super();
 			if(admob.supportDevice){
 				admob.setInterstitialKeys("a152834c8723912");
-				admob.addEventListener(AdEvent.onInterstitialReceive,onAdReceived);
+				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
 				admob.cacheInterstitial();
 			}
 		}
-		protected function onAdReceived(event:AdEvent):void
+		protected function onAdReceived(event:AdmobEvent):void
 		{
-			if(event.type==AdEvent.onInterstitialReceive){
+			if(event.type==AdmobEvent.onInterstitialReceive){
 				admob.showInterstitial();
 			}
 		}
