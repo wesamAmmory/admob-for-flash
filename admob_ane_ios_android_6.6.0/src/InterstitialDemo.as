@@ -12,7 +12,7 @@ package
 		{
 			super();
 			if(admob.supportDevice){
-				admob.setInterstitialKeys("a152834c8723912");
+				admob.setKeys("a152834c8723912");
 				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
 				admob.cacheInterstitial();
 			}

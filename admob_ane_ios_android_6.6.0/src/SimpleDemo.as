@@ -12,7 +12,7 @@ package
 			super();
 			var admob:Admob= Admob.getInstance();
 			if(admob.supportDevice){
-				admob.setBannerKeys("a152834c2b8cce6");
+				admob.setKeys("a152834c2b8cce6");
 				admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 			}
 		}

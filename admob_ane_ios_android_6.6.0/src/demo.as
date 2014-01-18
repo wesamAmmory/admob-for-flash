@@ -17,8 +17,6 @@ package
 	{ 
 		public var ios_full:String="a152834c8723912";
 		public var ios_banner:String="a152834c2b8cce6";
-//		public var did:String="C10FA0762720A0FD0E64FE3825A8B64F";// android device id
-		public var did:String="c1eb2d109e8a5f391a74456ce5023ecd";//iphone device id
 		public var xkey:TextField=new TextField();
 		public var ykey:TextField=new TextField();
 		public var typekey:TextField=new TextField();
@@ -39,11 +37,10 @@ package
 			
 			admob= Admob.getInstance();
 			if(admob.supportDevice){
-//				admob.setTesting(did);
-//				admob.setBannerKeys(this.ios_banner);
-				admob.setInterstitialKeys("a152af025a3526b");
+				admob.setKeys(ios_banner,ios_full);
 				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
 				admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
+				admob.enableTrace=true;
 			}
 		}
 		
@@ -88,6 +85,7 @@ package
 		
 		protected function click(event:MouseEvent):void
 		{
+			trace("click-------1");
 			if (!admob.supportDevice)
 			{
 				trace("not support device");
