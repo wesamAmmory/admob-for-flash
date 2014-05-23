@@ -20,7 +20,8 @@ admob.setBannerKeys("a152834c2b8cce6");<p/>
 admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);<p/>
 ```
 
-usage  Interstitial ad (full screen ad)
+###usage  
+Interstitial ad (full screen ad)
 ```
 var admob:Admob=Admob.getInstance();
 admob.setInterstitialKeys("a152834c8723912");
@@ -52,17 +53,22 @@ for android.  you need add in application-app.xml
 
 **more function**
 - 1. handler  ad event  like this.
+```
 admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
+```
 - 2. get ad size info
+```
 protected function onAdReceived(event:AdmobEvent):void
 {
     if(event.type==AdmobEvent.onBannerReceive){
 	trace(event.data.width,event.data.height);
     }
 }
+```
 - 3.get screen size info,old version function
+```
 admob.getScreenSize()
-
+```
 ###6.8.0 changes
 1.update admob sdk ios 6.8.0 ,android google service sdk 4.3<br/>
 2.add getScreenSize function for show banner absolute<br/>
@@ -73,7 +79,7 @@ admob.getScreenSize()
 4.update admob sdk to last version<br/>
 ###6.4.1 changes
 enable Interstitial admob ad 
-#6.3.1 changes
+###6.3.1 changes
 1.include ios and android in one file<br/>
 2.enable debug and pack on pc<br/>
 3.base on admob6.3 no more use udid<br/>
