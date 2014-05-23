@@ -13,11 +13,11 @@ air sdk 4.0 <p/>
 
 very easy to use ,just three line code for simple usage<p/>
 simple banner usage:
-...
+```
 var admob:Admob=Admob.getInstance();<p/>
 admob.setBannerKeys("a152834c2b8cce6");<p/>
 admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);<p/>
-...
+```
 
 usage  Interstitial ad (full screen ad)
 ...
