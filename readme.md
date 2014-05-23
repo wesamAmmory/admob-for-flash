@@ -1,16 +1,17 @@
 admob for flash 
 ------
-project home:https://code.google.com/p/flash-air-admob-ane-for-ios/ <br />
+
 admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient <br/>
-admob home: www.admob.com
-requred  air sdk 4.0 or later
+admob home: www.admob.com<br/>
+project home:https://code.google.com/p/flash-air-admob-ane-for-ios/ <br />
+
 
 admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios 5, ios 6, ios 7 ,and android<br/>
 support all native event<br/>
-base on admob ios sdk 6.8.0 and admob android sdk(Google Play services 4.3) 4.3<br/>
-air sdk 4.0 <br/>
+base on admob ios sdk 6.9.2 and admob android sdk(Google Play services 4.3) 4.3<br/>
+requred  air sdk 4.0 or later <br/>
 
 very easy to use ,just three line code for simple usage<br/>
 simple banner usage:
@@ -70,8 +71,9 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 ```
 ###6.8.0 changes
-1.update admob sdk ios 6.8.0 ,android google service sdk 4.3<br/>
+1.update admob sdk ios 6.9.2 ,android google service sdk 4.3<br/>
 2.add getScreenSize function for show banner absolute<br/>
+
 ###6.6.0 changes
 1.support  landscape and portrait  and autoOrient<br/>
 2.support relation position and Absolute position<br/>
