@@ -1,4 +1,5 @@
-### admob for flash 
+admob for flash 
+------
 project home:https://code.google.com/p/flash-air-admob-ane-for-ios/
 admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient
 admob home: www.admob.com
@@ -14,23 +15,23 @@ air sdk 4.0 <p/>
 very easy to use ,just three line code for simple usage<p/>
 simple banner usage:
 ```
-var admob:Admob=Admob.getInstance();<p/>
-admob.setBannerKeys("a152834c2b8cce6");<p/>
-admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);<p/>
+		var admob:Admob=Admob.getInstance();<p/>
+		admob.setBannerKeys("a152834c2b8cce6");<p/>
+		admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);<p/>
 ```
 
 usage  Interstitial ad (full screen ad)
 ...
-var admob:Admob=Admob.getInstance();
-admob.setInterstitialKeys("a152834c8723912");
-if (admob.isInterstitialReady())// check ad has cached ,if true show it
-{
-     admob.showInterstitial();
-}
-else
-{
-    admob.cacheInterstitial();
-}
+		var admob:Admob=Admob.getInstance();
+		admob.setInterstitialKeys("a152834c8723912");
+		if (admob.isInterstitialReady())// check ad has cached ,if true show it
+		{
+		     admob.showInterstitial();
+		}
+		else
+		{
+		    admob.cacheInterstitial();
+		}
 ...
 
 for android.  you need add in application-app.xml
@@ -61,17 +62,17 @@ protected function onAdReceived(event:AdmobEvent):void
 - 3.get screen size info,old version function
 admob.getScreenSize()
 
-### 6.8.0 changes
+6.8.0 changes
 1.update admob sdk ios 6.8.0 ,android google service sdk 4.3
 2.add getScreenSize function for show banner absolute
-### 6.6.0 changes
+6.6.0 changes
 1.support  landscape and portrait  and autoOrient
 2.support relation position and Absolute position
 3.support ios 5, ios 6, ios 7 ,and android
 4.update admob sdk to last version
-### 6.4.1 changes
+6.4.1 changes
 enable Interstitial admob ad 
-### 6.3.1 changes
+6.3.1 changes
 update:
 1.include ios and android in one file
 2.enable debug and pack on pc
