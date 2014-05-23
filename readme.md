@@ -5,14 +5,14 @@ admob_all_in_one.ane      contains admob for ios and for android in one file,ver
 admob home: www.admob.com
 requred  air sdk 4.0 or later
 
-admob ane for air mobile ad ,support Interstitial and Banner<p/>
-support  landscape and portrait  and autoOrient<p/>
-support ios 5, ios 6, ios 7 ,and android<p/>
-support all native event<p/>
-base on admob ios sdk 6.8.0 and admob android sdk(Google Play services 4.3) 4.3<p/>
-air sdk 4.0 <p/>
+admob ane for air mobile ad ,support Interstitial and Banner<br/>
+support  landscape and portrait  and autoOrient<br/>
+support ios 5, ios 6, ios 7 ,and android<br/>
+support all native event<br/>
+base on admob ios sdk 6.8.0 and admob android sdk(Google Play services 4.3) 4.3<br/>
+air sdk 4.0 <br/>
 
-very easy to use ,just three line code for simple usage<p/>
+very easy to use ,just three line code for simple usage<br/>
 simple banner usage:
 ```
 var admob:Admob=Admob.getInstance();<p/>
@@ -35,7 +35,7 @@ else
 ```
 
 for android.  you need add in application-app.xml
-...
+```
 <android>
         <manifestAdditions><![CDATA[
 			<manifest android:installLocation="auto">
@@ -48,7 +48,8 @@ for android.  you need add in application-app.xml
 			</manifest>
 		]]></manifestAdditions>
     </android>
-...
+```
+
 **more function**
 - 1. handler  ad event  like this.
 admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
@@ -63,18 +64,17 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ###6.8.0 changes
-1.update admob sdk ios 6.8.0 ,android google service sdk 4.3
-2.add getScreenSize function for show banner absolute
+1.update admob sdk ios 6.8.0 ,android google service sdk 4.3<br/>
+2.add getScreenSize function for show banner absolute<br/>
 ###6.6.0 changes
-1.support  landscape and portrait  and autoOrient
-2.support relation position and Absolute position
-3.support ios 5, ios 6, ios 7 ,and android
-4.update admob sdk to last version
-6.4.1 changes
+1.support  landscape and portrait  and autoOrient<br/>
+2.support relation position and Absolute position<br/>
+3.support ios 5, ios 6, ios 7 ,and android<br/>
+4.update admob sdk to last version<br/>
+###6.4.1 changes
 enable Interstitial admob ad 
-6.3.1 changes
-update:
-1.include ios and android in one file
-2.enable debug and pack on pc
-3.base on admob6.3 no more use udid
-4.enable get ad size info and screen size info
+#6.3.1 changes
+1.include ios and android in one file<br/>
+2.enable debug and pack on pc<br/>
+3.base on admob6.3 no more use udid<br/>
+4.enable get ad size info and screen size info<br/>
