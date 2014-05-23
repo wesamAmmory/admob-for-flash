@@ -16,9 +16,9 @@ requred  air sdk 4.0 or later <br/>
 very easy to use ,just three line code for simple usage<br/>
 simple banner usage:
 ```
-var admob:Admob=Admob.getInstance();<p/>
-admob.setBannerKeys("a152834c2b8cce6");<p/>
-admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);<p/>
+var admob:Admob=Admob.getInstance();
+admob.setBannerKeys("a152834c2b8cce6");
+admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 ```
 
 ###usage  
