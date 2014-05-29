@@ -3,7 +3,7 @@ admob for flash
 
 admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient <br/>
 admob home: www.admob.com<br/>
-project home:https://code.google.com/p/flash-air-admob-ane-for-ios/ <br />
+project home:http://code.google.com/p/flash-air-admob-ane-for-ios-and-android/ <br />
 
 
 admob ane for air mobile ad ,support Interstitial and Banner<br/>
@@ -17,7 +17,7 @@ very easy to use ,just three line code for simple usage<br/>
 simple banner usage:
 ```
 var admob:Admob=Admob.getInstance();
-admob.setBannerKeys("a152834c2b8cce6");
+admob.setKeys("a152834c2b8cce6");
 admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 ```
 
@@ -25,7 +25,7 @@ admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 Interstitial ad (full screen ad)
 ```
 var admob:Admob=Admob.getInstance();
-admob.setInterstitialKeys("a152834c8723912");
+admob.setKeys("a152834c8723912");
 if (admob.isInterstitialReady())// check ad has cached ,if true show it
 {
      admob.showInterstitial();
