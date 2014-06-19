@@ -86,3 +86,5 @@ enable Interstitial admob ad
 2.enable debug and pack on pc<br/>
 3.base on admob6.3 no more use udid<br/>
 4.enable get ad size info and screen size info<br/>
+
+contact:wohaosea@gmail.com
