@@ -15,10 +15,12 @@ package
 	
 	public class demo extends Sprite
 	{ 
-		public var ios_full:String="a152834c8723912";
-//		public var ios_full:String="ca-app-pub-1394495769473752/5494995625";
-		public var ios_banner:String="a152834c2b8cce6";
-//		public var ios_banner:String="ca-app-pub-1394495769473752/1208056828";
+		//android
+//		public var fullID:String="ca-app-pub-17380930385764784/6322941144";//replace this fake ID with your really ID
+//		public var bannerID:String="ca-app-pub-17380930385764874/4846207943";//replace this fake ID with your really ID
+		//ios
+		public var fullID:String="ca-app-pub-173809303857647774/1753140742";//replace this fake ID with your really ID
+		public var bannerID:String="ca-app-pub-173809303857647884/9276407547";//replace this fake ID with your really ID
 		public var xkey:TextField=new TextField();
 		public var ykey:TextField=new TextField();
 		public var typekey:TextField=new TextField();
@@ -39,11 +41,11 @@ package
 			
 			admob= Admob.getInstance();
 			if(admob.supportDevice){
-				admob.setKeys(ios_banner,ios_full);
+				admob.setKeys(bannerID,fullID);
 				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
 				admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
 				admob.addEventListener(AdmobEvent.onBannerPresent,onAdReceived);
-				admob.enableTrace=false;
+				admob.enableTrace=true;
 				trace(admob.getScreenSize(),admob.getScreenSize().height);
 			}
 		}
