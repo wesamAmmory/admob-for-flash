@@ -4,13 +4,13 @@ admob for flash
 admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient <br/>
 admob home: www.admob.com<br/>
 project home:https://github.com/lilili87222/admob-for-flash/ <br />
-
+download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
 
 admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios 5, ios 6, ios 7 ,and android<br/>
 support all native event<br/>
-base on admob ios sdk 6.9.2 and admob android sdk(Google Play services 4.3) 4.3<br/>
+base on admob ios sdk 6.9.3 and admob android sdk(Google Play services 4.3) 4.3<br/>
 requred  air sdk 4.0 or later <br/>
 
 very easy to use ,just three line code for simple usage<br/>
@@ -25,7 +25,7 @@ admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 Interstitial ad (full screen ad)
 ```
 var admob:Admob=Admob.getInstance();
-admob.setKeys("a152834c8723912");
+admob.setKeys("ca-app-pub-17380930385764784/6322941144","ca-app-pub-17380930385764874/4846207943");////replace this fake ID with your really ID
 if (admob.isInterstitialReady())// check ad has cached ,if true show it
 {
      admob.showInterstitial();
@@ -44,7 +44,7 @@ for android.  you need add in application-app.xml
 			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 			     <application>
-			           <meta-data android:name="com.google.android.gms.version" android:value="4323000" />
+			           <meta-data android:name="com.google.android.gms.version" android:value="4452000" />
 			  	   <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 			     </application>
 			</manifest>
@@ -70,6 +70,10 @@ protected function onAdReceived(event:AdmobEvent):void
 ```
 admob.getScreenSize()
 ```
+###admob ane 6.9.3
+1.update admob sdk ios to 6.9.3 ,update android google service sdk to the last version<br/>
+2.trace the detail when load ad fail<br/>
+
 ###6.8.0 changes
 1.update admob sdk ios 6.9.2 ,android google service sdk 4.3<br/>
 2.add getScreenSize function for show banner absolute<br/>
