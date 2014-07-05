@@ -70,7 +70,7 @@ protected function onAdReceived(event:AdmobEvent):void
 ```
 admob.getScreenSize()
 ```
-###admob ane 6.9.3
+### 6.9.3 changes
 1.update admob sdk ios to 6.9.3 ,update android google service sdk to the last version<br/>
 2.trace the detail when load ad fail<br/>
 
