@@ -3,7 +3,7 @@ admob for flash
 
 admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient <br/>
 admob home: www.admob.com<br/>
-project home:http://code.google.com/p/flash-air-admob-ane-for-ios-and-android/ <br />
+project home:https://github.com/lilili87222/admob-for-flash/ <br />
 
 
 admob ane for air mobile ad ,support Interstitial and Banner<br/>
