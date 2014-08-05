@@ -16,11 +16,11 @@ package
 	public class demo extends Sprite
 	{ 
 		//android
-//		public var fullID:String="ca-app-pub-17380930385764784/6322941144";//replace this fake ID with your really ID
-//		public var bannerID:String="ca-app-pub-17380930385764874/4846207943";//replace this fake ID with your really ID
+		public var fullID:String="ca-app-pub-1738093038576474/6322941144";
+		public var bannerID:String="ca-app-pub-1738093038576474/4846207943";
 		//ios
-		public var fullID:String="ca-app-pub-173809303857647774/1753140742";//replace this fake ID with your really ID
-		public var bannerID:String="ca-app-pub-173809303857647884/9276407547";//replace this fake ID with your really ID
+//		public var fullID:String="ca-app-pub-1738093038576474/1753140742";
+//		public var bannerID:String="ca-app-pub-1738093038576474/9276407547";
 		public var xkey:TextField=new TextField();
 		public var ykey:TextField=new TextField();
 		public var typekey:TextField=new TextField();
@@ -156,9 +156,11 @@ package
 		
 		protected function onAdReceived(event:AdmobEvent):void
 		{
+//			if(event.data!=null)
+//			trace("adsize",event.data.width,event.data.height);
 //			trace(event.type);
 			if(event.type==AdmobEvent.onBannerReceive){
-//				trace(event.data.width,event.data.height);
+				trace(event.data.width,event.data.height);
 			}
 			if(event.type==AdmobEvent.onInterstitialReceive){
 //				trace("flash showInterstitial");
