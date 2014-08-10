@@ -44,7 +44,8 @@ for android.  you need add in application-app.xml
 			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 			     <application>
-			           <meta-data android:name="com.google.android.gms.version" android:value="4452000" />
+ <meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
 			  	   <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 			     </application>
 			</manifest>
