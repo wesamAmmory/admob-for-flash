@@ -74,7 +74,7 @@ admob.getScreenSize()
 ```
 
 ### admob ane 6.11.1 changes
-1.update admob sdk for ios to 6.11.1
+1.update admob sdk for ios to 6.11.1<br/>
 2.fix Errors/warnings on publishing Air app with admob extension using Flash Professional
 
 ### 6.9.3 changes
