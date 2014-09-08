@@ -8,7 +8,7 @@ download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
 
 admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
-support ios 5, ios 6, ios 7 ,and android<br/>
+support ios and android<br/>
 support all native event<br/>
 base on admob ios sdk 6.11.1 and admob android sdk(Google Play services 4.5) 4.5<br/>
 requred  air sdk 14.0 or later <br/>
