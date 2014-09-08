@@ -10,8 +10,8 @@ admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios 5, ios 6, ios 7 ,and android<br/>
 support all native event<br/>
-base on admob ios sdk 6.9.3 and admob android sdk(Google Play services 4.3) 4.3<br/>
-requred  air sdk 4.0 or later <br/>
+base on admob ios sdk 6.11.1 and admob android sdk(Google Play services 4.3) 4.3<br/>
+requred  air sdk 14.0 or later <br/>
 
 very easy to use ,just three line code for simple usage<br/>
 simple banner usage:
@@ -70,7 +70,13 @@ protected function onAdReceived(event:AdmobEvent):void
 - 3.get screen size info,old version function
 ```
 admob.getScreenSize()
+
 ```
+
+### admob ane 6.11.1 changes
+1.update admob sdk for ios to 6.11.1
+2.fix Errors/warnings on publishing Air app with admob extension using Flash Professional
+
 ### 6.9.3 changes
 1.update admob sdk ios to 6.9.3 ,update android google service sdk to the last version<br/>
 2.trace the detail when load ad fail<br/>
