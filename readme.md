@@ -14,7 +14,7 @@ base on admob ios sdk 6.11.1 and admob android sdk(Google Play services 4.5) 4.5
 requred  air sdk 14.0 or later <br/>
 
 very easy to use ,just three line code for simple usage<br/>
-simple banner usage:
+### simple banner usage:
 ```
 var admob:Admob=Admob.getInstance();
 admob.setKeys("a152834c2b8cce6");
