@@ -82,10 +82,10 @@ admob.getScreenSize()
 ```
 
 ### 6.12.0 admob ane changes
-1.update admob sdk for ios to 6.12.0
-2.add code tips document
-3.add admob extra parameter that control test mode,age,location,is child app and so on.
-4.refact demo code
+1.update admob sdk for ios to 6.12.0 <br/>
+2.add code tips document<br/>
+3.add admob extra parameter that control test mode,age,location,is child app and so on. <br/>
+4.refact demo code<br/>
 
 ### admob ane 6.11.1 changes
 1.update admob sdk for ios to 6.11.1<br/>
