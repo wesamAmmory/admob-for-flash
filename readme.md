@@ -10,19 +10,18 @@ admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios and android<br/>
 support all native event<br/>
-base on admob ios sdk 6.11.1 and admob android sdk(Google Play services 4.5) 4.5<br/>
+base on admob ios sdk 6.12.0 and admob android sdk(Google Play services 4.5) 4.5<br/>
 requred  air sdk 14.0 or later <br/>
 
 very easy to use ,just three line code for simple usage<br/>
-### simple banner usage:
+### show simple admob banner :
 ```
 var admob:Admob=Admob.getInstance();
 admob.setKeys("a152834c2b8cce6");
 admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 ```
 
-###usage  
-Interstitial ad (full screen ad)
+###show admob  Interstitial ad (full screen ad)
 ```
 var admob:Admob=Admob.getInstance();
 admob.setKeys("ca-app-pub-17380930385764784/6322941144","ca-app-pub-17380930385764874/4846207943");////replace this fake ID with your really ID
@@ -35,8 +34,17 @@ else
     admob.cacheInterstitial();
 }
 ```
+### show admob banner with extra parameter 
+```
+var extraParam:ExtraParameter=new ExtraParameter();
+extraParam.isChildApp=true;
+extraParam.testDeviceID="C10FA0762720A0FD0E64FE3825A8B64F";
 
-for android.  you need add in application-app.xml
+var admob:Admob=Admob.getInstance();
+admob.setKeys("a152834c2b8cce6");
+admob.showBannerAbsolute(Admob.BANNER,0,100,extraParam);
+```
+###for android.  you need add in application-app.xml
 ```
 <android>
         <manifestAdditions><![CDATA[
@@ -72,6 +80,12 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ```
+
+### 6.12.0 admob ane changes
+1.update admob sdk for ios to 6.12.0
+2.add code tips document
+3.add admob extra parameter that control test mode,age,location,is child app and so on.
+4.refact demo code
 
 ### admob ane 6.11.1 changes
 1.update admob sdk for ios to 6.11.1<br/>

@@ -3,95 +3,85 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
-	import flash.text.TextFormat;
-	
+
 	import so.cuo.platform.admob.Admob;
 	import so.cuo.platform.admob.AdmobEvent;
 	import so.cuo.platform.admob.AdmobSize;
-	
+	import so.cuo.platform.admob.ExtraParameter;
+
 	public class demo extends Sprite
-	{ 
-		//android
-		public var fullID:String="ca-app-pub-1738093038576474/6322941144";
-		public var bannerID:String="ca-app-pub-1738093038576474/4846207943";
-		//ios
-//		public var fullID:String="ca-app-pub-1738093038576474/1753140742";
-//		public var bannerID:String="ca-app-pub-1738093038576474/9276407547";
-		public var xkey:TextField=new TextField();
-		public var ykey:TextField=new TextField();
-		public var typekey:TextField=new TextField();
-		public var absSubmitButton:TextField=new TextField();
-		public var relationSubmitButton:TextField=new TextField();
-		public var hideSubmitButton:TextField=new TextField();
-		public var interstitialSubmitButton:TextField=new TextField();
-		private var format:TextFormat=new TextFormat(null,38);
+	{
 		private var admob:Admob;
-		
+		public var fullID:String="ca-app-pub-1738093038576474/ 6322941144";
+		public var bannerID:String="ca-app-pub-1738093038576474/ 4846207943";
+		public var extraParam:ExtraParameter;
+
+		public var xPosition:TextField
+		public var yPosition:TextField
+		public var bannerType:TextField
+
 		public function demo()
 		{
 			super();
-			
-			stage.align = StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.NO_SCALE;
 			initUI();
-			
-			admob= Admob.getInstance();
-			if(admob.supportDevice){
-				admob.setKeys(bannerID,fullID);
-				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
-				admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
-				admob.addEventListener(AdmobEvent.onBannerPresent,onAdReceived);
+			admob=Admob.getInstance();
+			if (admob.supportDevice)
+			{
+				admob.setKeys(bannerID, fullID);
+				admob.addEventListener(AdmobEvent.onInterstitialReceive, onAdEvent);
+				admob.addEventListener(AdmobEvent.onBannerReceive, onAdEvent);
 				admob.enableTrace=true;
-				trace(admob.getScreenSize(),admob.getScreenSize().height);
+				trace(admob.getScreenSize(), admob.getScreenSize().height);
 			}
+			
+			extraParam=new ExtraParameter();
+			extraParam.setLocation(40, 40);
+			extraParam.birthday=new Date();
+			extraParam.contentUrl="http://www.cuo.so";
+			extraParam.keyWord="air admob ane";
+			extraParam.isChildApp=true;
+			extraParam.testDeviceID="C10FA0762720A0FD0E64FE3825A8B64F";
 		}
-		
+
 		private function initUI():void
 		{
-			typekey.y=ykey.y=xkey.y=100;
-			xkey.x=100;	
-			ykey.x=300;
-			typekey.x=500;
-			typekey.type=ykey.type=xkey.type=TextFieldType.INPUT;
-			typekey.border=xkey.border=ykey.border=true;
-			
-			this.hideSubmitButton.width=relationSubmitButton.width=interstitialSubmitButton.width=absSubmitButton.width=xkey.width=ykey.width=140;
-			this.typekey.height=this.hideSubmitButton.height=relationSubmitButton.height=interstitialSubmitButton.height=absSubmitButton.height=xkey.height=ykey.height=48;
-			this.typekey.defaultTextFormat=this.hideSubmitButton.defaultTextFormat=interstitialSubmitButton.defaultTextFormat=relationSubmitButton.defaultTextFormat=absSubmitButton.defaultTextFormat=xkey.defaultTextFormat=ykey.defaultTextFormat=this.format;
-			absSubmitButton.text="absolute";
-			relationSubmitButton.text="relation";
-			interstitialSubmitButton.text="interstitial";
-			this.hideSubmitButton.text="hide";
-			xkey.text="8";// relation position type or abs position x value
-			ykey.text="0";//abs position y value
-			typekey.text="1";// banner type
-			this.addChild(xkey);
-			this.addChild(ykey);
-			this.addChild(this.typekey);
-			this.addChild(absSubmitButton);
-			this.addChild(this.relationSubmitButton);
-			this.addChild(this.interstitialSubmitButton);
-			this.addChild(this.hideSubmitButton);
-			this.hideSubmitButton.x=relationSubmitButton.x=interstitialSubmitButton.x=absSubmitButton.x=100;
-			this.relationSubmitButton.selectable=this.absSubmitButton.selectable=this.interstitialSubmitButton.selectable=false;
-			this.relationSubmitButton.border=this.absSubmitButton.border=this.interstitialSubmitButton.border=true;
-			this.relationSubmitButton.y=200;
-			this.absSubmitButton.y=300;
-			this.interstitialSubmitButton.y=400;
-			this.hideSubmitButton.y=500;
-			absSubmitButton.addEventListener(MouseEvent.CLICK,this.click);
-			relationSubmitButton.addEventListener(MouseEvent.CLICK,this.click);
-			interstitialSubmitButton.addEventListener(MouseEvent.CLICK,this.click);
-			this.hideSubmitButton.addEventListener(MouseEvent.CLICK,this.click);
+			stage.align=StageAlign.TOP_LEFT;
+			stage.scaleMode=StageScaleMode.NO_SCALE;
+			var ui:UI=new UI(onClick);
+			addChild(ui);
+			ui.addButton("relation", 20, 20);
+			ui.addButton("absolute", 200, 20);
+			ui.addButton("hide", 20, 120);
+			ui.addButton("interstitial", 200, 120);
+
+			xPosition=ui.addButton("x", 20, 220);
+			yPosition=ui.addButton("y", 200, 220);
+			bannerType=ui.addButton("bannerType", 20, 320);
+			xPosition.type=yPosition.type=bannerType.type=TextFieldType.INPUT;
+			xPosition.border=yPosition.border=bannerType.border=true;
 		}
-		
-		protected function click(event:MouseEvent):void
+
+		private function onAdEvent(event:AdmobEvent):void
 		{
-			trace("click flash stage-------1",stage.stageWidth,stage.stageHeight,stage.orientation);
+//			if(event.data!=null)
+//			trace("adsize",event.data.width,event.data.height);
+//			trace(event.type);
+			if (event.type == AdmobEvent.onBannerReceive)
+			{
+				trace(event.data.width, event.data.height);
+			}
+			if (event.type == AdmobEvent.onInterstitialReceive)
+			{
+				admob.showInterstitial();
+			}
+		}
+
+		private function onClick(label:String):void
+		{
+
+			trace("click flash stage-------1", stage.stageWidth, stage.stageHeight, stage.orientation);
 			if (!admob.supportDevice)
 			{
 				trace("not support device");
@@ -99,74 +89,66 @@ package
 			}
 			else
 			{
-				var text:TextField=event.currentTarget as TextField;
-				var xv:int=parseInt(xkey.text);
-				var yv:int=parseInt(ykey.text);
-				var size:int=parseInt(typekey.text);
+				var xPositionValue:int=parseInt(xPosition.text);
+				var yPositionValue:int=parseInt(yPosition.text);
+				var bannerTypeValue:int=parseInt(bannerType.text);
 				var adsize:AdmobSize;
-				if(size==1){
+				if (bannerTypeValue == 1)
+				{
 					adsize=Admob.BANNER;
 				}
-				if(size==2){
+				if (bannerTypeValue == 2)
+				{
 					adsize=Admob.IAB_BANNER;
 				}
-				if(size==3){
+				if (bannerTypeValue == 3)
+				{
 					adsize=Admob.SMART_BANNER;
 				}
-				if(size==4){
+				if (bannerTypeValue == 4)
+				{
 					adsize=Admob.IAB_MRECT;
 				}
-				if(size==5){
+				if (bannerTypeValue == 5)
+				{
 					adsize=Admob.IAB_WIDE_SKYSCRAPER;
 				}
-				if(size==6){
+				if (bannerTypeValue == 6)
+				{
 					adsize=Admob.IAB_LEADERBOARD;
 				}
-				if(adsize==null){
-					adsize=new  AdmobSize(320,50);
+				if (adsize == null)
+				{
+					adsize=new AdmobSize(320, 50);
 				}
-				if(text==this.hideSubmitButton){
+				if (label == "hide")
+				{
 					admob.hideBanner();
 				}
-				if(text==this.absSubmitButton){
-					admob.showBannerAbsolute(adsize,xv,yv);
+				if (label == "absolute")
+				{
+					admob.showBannerAbsolute(adsize, xPositionValue, yPositionValue, extraParam);
 				}
-				else if(text==this.relationSubmitButton){
-					if(xv>9)xv=9;
-					if(xv<1)xv=1;
-					admob.showBanner(adsize,xv);
+				else if (label == "relation")
+				{
+					if (xPositionValue > 9)
+						xPositionValue=9;
+					if (xPositionValue < 1)
+						xPositionValue=1;
+					admob.showBanner(adsize, xPositionValue, extraParam);
 				}
-				else if(text==this.interstitialSubmitButton){
-					if(admob.isInterstitialReady()){
-//						trace("flash showInterstitial");
-//						admob.hideBanner();
+				else if (label == "interstitial")
+				{
+					if (admob.isInterstitialReady())
+					{
 						admob.showInterstitial();
-					}else{
-//						trace("flash cacheInterstial");
-						admob.cacheInterstitial();
+					}
+					else
+					{
+						admob.cacheInterstitial(extraParam);
 					}
 				}
 			}
 		}
-		
-		protected function onBannerFail(event:Event):void
-		{
-			trace(event.type);
-		}
-		
-		protected function onAdReceived(event:AdmobEvent):void
-		{
-//			if(event.data!=null)
-//			trace("adsize",event.data.width,event.data.height);
-//			trace(event.type);
-			if(event.type==AdmobEvent.onBannerReceive){
-				trace(event.data.width,event.data.height);
-			}
-			if(event.type==AdmobEvent.onInterstitialReceive){
-//				trace("flash showInterstitial");
-				admob.showInterstitial();
-			}
-		}
-		
 	}
 }
