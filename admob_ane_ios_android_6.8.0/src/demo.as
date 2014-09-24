@@ -14,8 +14,8 @@ package
 	public class demo extends Sprite
 	{
 		private var admob:Admob;
-		public var fullID:String="ca-app-pub-1738093038576474/ 6322941144";
-		public var bannerID:String="ca-app-pub-1738093038576474/ 4846207943";
+		public var fullID:String="ca-app-pub-1738093038576474/6322941144";
+		public var bannerID:String="ca-app-pub-1738093038576474/4846207943";
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField
