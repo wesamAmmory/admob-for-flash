@@ -13,7 +13,7 @@ package
 			var admob:Admob= Admob.getInstance();
 			if(admob.supportDevice){
 				admob.setKeys("your admob id");
-				admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
+				admob.showBanner(Admob.SMART_BANNER,AdmobPosition.BOTTOM_CENTER);
 			}
 		}
 	}
