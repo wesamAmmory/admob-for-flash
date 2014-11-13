@@ -42,7 +42,7 @@ extraParam.testDeviceID="device id for test";
 
 var admob:Admob=Admob.getInstance();
 admob.setKeys("admob banner id");
-admob.showBannerAbsolute(Admob.BANNER,0,100,extraParam);
+admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 ```
 ###for android.  you need add in application-app.xml
 ```
