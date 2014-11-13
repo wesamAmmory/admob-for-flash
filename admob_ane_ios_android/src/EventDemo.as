@@ -15,7 +15,7 @@ package
 			super();
 			if (admob.supportDevice)
 			{
-				admob.setKeys("a152834c8723912");//Interstitial and banner use the same key
+				admob.setKeys("your admob banner id");//Interstitial and banner use the same key
 				admob.addEventListener(AdmobEvent.onBannerFailedReceive, onAdReceived);
 				admob.addEventListener(AdmobEvent.onBannerReceive, onAdReceived);
 			}
