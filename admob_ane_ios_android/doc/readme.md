@@ -17,14 +17,14 @@ very easy to use ,just three line code for simple usage<br/>
 ### show simple admob banner :
 ```
 var admob:Admob=Admob.getInstance();
-admob.setKeys("a152834c2b8cce6");
+admob.setKeys("admob banner id");
 admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
 ```
 
 ###show admob  Interstitial ad (full screen ad)
 ```
 var admob:Admob=Admob.getInstance();
-admob.setKeys("ca-app-pub-17380930385764784/6322941144","ca-app-pub-17380930385764874/4846207943");////replace this fake ID with your really ID
+admob.setKeys("admob banner id","admob institial id");////replace this fake ID with your really ID
 if (admob.isInterstitialReady())// check ad has cached ,if true show it
 {
      admob.showInterstitial();
@@ -38,10 +38,10 @@ else
 ```
 var extraParam:ExtraParameter=new ExtraParameter();
 extraParam.isChildApp=true;
-extraParam.testDeviceID="C10FA0762720A0FD0E64FE3825A8B64F";
+extraParam.testDeviceID="device id for test";
 
 var admob:Admob=Admob.getInstance();
-admob.setKeys("a152834c2b8cce6");
+admob.setKeys("admob banner id");
 admob.showBannerAbsolute(Admob.BANNER,0,100,extraParam);
 ```
 ###for android.  you need add in application-app.xml
