@@ -18,7 +18,7 @@ very easy to use ,just three line code for simple usage<br/>
 ```
 var admob:Admob=Admob.getInstance();
 admob.setKeys("admob banner id");
-admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
+admob.showBanner(Admob.SMART_BANNER,AdmobPosition.BOTTOM_CENTER);
 ```
 
 ###show admob  Interstitial ad (full screen ad)
