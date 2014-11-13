@@ -14,8 +14,8 @@ package
 	public class demo extends Sprite
 	{
 		private var admob:Admob;
-		public var fullID:String="ca-app-pub-1738093038576474/6322941144";
-		public var bannerID:String="ca-app-pub-1738093038576474/4846207943";
+		public var fullID:String="institial id";
+		public var bannerID:String="banner id";
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField
@@ -39,10 +39,9 @@ package
 			extraParam=new ExtraParameter();
 			extraParam.setLocation(40, 40);
 			extraParam.birthday=new Date();
-			extraParam.contentUrl="http://www.cuo.so";
 			extraParam.keyWord="air admob ane";
 			extraParam.isChildApp=true;
-			extraParam.testDeviceID="C10FA0762720A0FD0E64FE3825A8B64F";
+			extraParam.testDeviceID="test device id";
 		}
 
 		private function initUI():void
