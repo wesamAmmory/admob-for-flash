@@ -13,10 +13,12 @@ support all native event<br/>
 base on admob ios sdk 6.12.0 and admob android sdk(Google Play services 4.5) 4.5<br/>
 requred  air sdk 15.0 or later <br/>
 
+very easy to use ,just three line code for simple usage<br/>
+
+### file list 
 admob_all_in_one_6.12.2.ane  most user use this file,it contain google play service sdk<br/>
 admob6.12.2_without_gp.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
 
-very easy to use ,just three line code for simple usage<br/>
 ### show simple admob banner :
 ```
 var admob:Admob=Admob.getInstance();
