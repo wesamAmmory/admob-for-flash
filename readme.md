@@ -14,8 +14,8 @@ requred  air sdk 15.0 or later <br/>
 very easy to use ,just three line code for simple usage<br/>
 
 ### file list 
-admob_all_in_one_6.12.2.ane  contains admob for ios and for android in one file,very convenient.<br/>most user use this file,it contain google play service sdk<br/>
-admob6.12.2_without_gp.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
+ - admob_all_in_one_6.12.2.ane  contains admob for ios and for android in one file,very convenient.<br/>most user use this file,it contain google play service sdk<br/>
+ - admob6.12.2_without_gp.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
 
 ### show simple admob banner :
 ```
@@ -37,10 +37,10 @@ else
     admob.cacheInterstitial();
 }
 ```
-### show admob banner with extra parameter 
+### show test ad banner with extra parameter 
 ```
 var extraParam:ExtraParameter=new ExtraParameter();
-extraParam.isChildApp=true;
+//extraParam.isChildApp=true;
 extraParam.testDeviceID="true";// for android
 //extraParam.testDeviceID="your device"; for ios 
 
