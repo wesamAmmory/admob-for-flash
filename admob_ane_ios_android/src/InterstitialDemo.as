@@ -12,7 +12,7 @@ package
 		{
 			super();
 			if(admob.supportDevice){
-				admob.setKeys("your admob ID");
+				admob.setKeys("your banner id","your institial id");
 				admob.addEventListener(AdmobEvent.onInterstitialReceive,onAdReceived);
 				admob.cacheInterstitial();
 			}

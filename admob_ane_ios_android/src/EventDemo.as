@@ -24,7 +24,7 @@ package
 
 		protected function clickStage(event:MouseEvent):void
 		{
-			admob.showBannerAbsolute(Admob.IAB_BANNER, 0, 10);
+			admob.showBannerAbsolute(Admob.SMART_BANNER, 0, 10);
 			if (admob.isInterstitialReady())
 			{
 				admob.showInterstitial();
