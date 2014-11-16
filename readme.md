@@ -1,7 +1,5 @@
 admob for flash 
 ------
-
-admob_all_in_one.ane      contains admob for ios and for android in one file,very convenient <br/>
 admob home: www.admob.com<br/>
 project home:https://github.com/lilili87222/admob-for-flash/ <br />
 download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
@@ -10,13 +8,13 @@ admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios and android<br/>
 support all native event<br/>
-base on admob ios sdk 6.12.0 and admob android sdk(Google Play services 4.5) 4.5<br/>
+base on admob ios sdk 6.12.2 and admob android sdk(Google Play services 4.5) 4.5<br/>
 requred  air sdk 15.0 or later <br/>
 
 very easy to use ,just three line code for simple usage<br/>
 
 ### file list 
-admob_all_in_one_6.12.2.ane  most user use this file,it contain google play service sdk<br/>
+admob_all_in_one_6.12.2.ane  contains admob for ios and for android in one file,very convenient.<br/>most user use this file,it contain google play service sdk<br/>
 admob6.12.2_without_gp.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
 
 ### show simple admob banner :
@@ -43,7 +41,8 @@ else
 ```
 var extraParam:ExtraParameter=new ExtraParameter();
 extraParam.isChildApp=true;
-extraParam.testDeviceID="your device";
+extraParam.testDeviceID="true";// for android
+//extraParam.testDeviceID="your device"; for ios 
 
 var admob:Admob=Admob.getInstance();
 admob.setKeys("your admob banner id","your admob institial id");
@@ -56,6 +55,7 @@ admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 			<manifest android:installLocation="auto">
 			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+			     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 			     <application>
  <meta-data android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
@@ -85,6 +85,9 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ```
+### 6.12.2 admob ane changes
+1.update admob sdk for ios to 6.12.2 <br/>
+2.make it easy to show test ad on android<br/>
 
 ### 6.12.0 admob ane changes
 1.update admob sdk for ios to 6.12.0 <br/>
