@@ -1,6 +1,6 @@
 admob for flash 
 ------
-admob home: www.admob.com<br/>
+related lib: https://github.com/lilili87222/as3-air-ad-network-framework<br/>
 project home:https://github.com/lilili87222/admob-for-flash/ <br />
 download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
 
