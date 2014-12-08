@@ -121,3 +121,6 @@ enable Interstitial admob ad
 4.enable get ad size info and screen size info<br/>
 
 contact:wohaosea@gmail.com
+
+if user like this lib,you can download and review our game
+https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8
