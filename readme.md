@@ -8,7 +8,7 @@ admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios and android<br/>
 support all native event<br/>
-support ios 64,air sdk 16 
+support ios 64,air sdk 16 <br/>
 base on admob ios sdk 6.12.2 and admob android sdk(Google Play services 4.5) 4.5<br/>
 requred  air sdk 15.0 or later <br/>
 
