@@ -86,6 +86,10 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ```
+### admob ane 20150126 changes
+1.add support for android x86 ,ios armv64,support air sdk 16
+2.fix ios 8 position problem.
+
 ### 6.12.2 admob ane changes
 1.update admob sdk for ios to 6.12.2 <br/>
 2.make it easy to show test ad on android<br/>
