@@ -87,7 +87,7 @@ admob.getScreenSize()
 
 ```
 ### admob ane 20150126 changes
-1.add support for android x86 ,ios armv64,support air sdk 16
+1.add support for android x86 ,ios armv64,support air sdk 16<br/>
 2.fix ios 8 position problem.
 
 ### 6.12.2 admob ane changes
