@@ -86,6 +86,10 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ```
+### admob ane 20150126 changes
+1.add support for android x86 ,ios armv64,support air sdk 16<br/>
+2.fix ios 8 position problem.
+
 ### 6.12.2 admob ane changes
 1.update admob sdk for ios to 6.12.2 <br/>
 2.make it easy to show test ad on android<br/>
@@ -123,5 +127,7 @@ enable Interstitial admob ad
 
 contact:wohaosea@gmail.com
 
-if user like this lib,you can download and review our game
-https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8
+if user like this lib,you can download and review our game <br/>
+https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8 <br/>
+donate and download more ane  <br/>
+http://www.cuo.so/ane-list/index.html  <br/>
