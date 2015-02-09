@@ -12,6 +12,7 @@ support ios 64,air sdk 16 <br/>
 base on admob ios sdk 6.12.2 and admob android sdk(Google Play services 4.5) 4.5<br/>
 requred  air sdk 15.0 or later <br/>
 
+
 very easy to use ,just three line code for simple usage<br/>
 
 ### file list 
@@ -86,7 +87,12 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ```
-### admob ane 20150126 changes
+
+### admob_ane_20150209 changes
+1.upgrade admob sdk to 7.0<br/>
+2.fix banner position problem completely.tested on ios 7,io8 and ios 6 with air 17 beta.
+
+### admob_ane_20150126 changes
 1.add support for android x86 ,ios armv64,support air sdk 16<br/>
 2.fix ios 8 position problem.
 
