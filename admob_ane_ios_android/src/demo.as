@@ -16,6 +16,7 @@ package
 		private var admob:Admob;
 		public var fullID:String="ca-app-pub-xxxxxxxxxxxxxx/xxxxxxxxxxx";
 		public var bannerID:String="ca-app-pub-xxxxxxxxxxxxxx/xxxxxxxxxxx";
+//error admob id may cause ERROR_CODE_ERNAL_ERROR 
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField

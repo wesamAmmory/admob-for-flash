@@ -9,15 +9,15 @@ support  landscape and portrait  and autoOrient<br/>
 support ios and android<br/>
 support all native event<br/>
 support ios 64,air sdk 16 <br/>
-base on admob ios sdk 6.12.2 and admob android sdk(Google Play services 4.5) 4.5<br/>
-requred  air sdk 15.0 or later <br/>
+base on admob ios sdk 7.2.2 and admob android sdk(Google Play services 6.5) 6.5<br/>
+requred  air sdk 17.0 or later <br/>
 
 
 very easy to use ,just three line code for simple usage<br/>
 
 ### file list 
- - admob_all_in_one_6.12.2.ane  contains admob for ios and for android in one file,very convenient.<br/>most user use this file,it contain google play service sdk<br/>
- - admob6.12.2_without_gp.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
+ - admob_all_in_one_20150519.ane  contains admob for ios and for android in one file,very convenient.<br/>most user use this file,it contain google play service sdk<br/>
+ - admob_without_gps_20150209.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
 
 ### show simple admob banner :
 ```
@@ -61,7 +61,7 @@ admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 			     <application>
  <meta-data android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
-			  	   <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+			  	   <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/>
 			     </application>
 			</manifest>
 		]]></manifestAdditions>
@@ -87,6 +87,11 @@ protected function onAdReceived(event:AdmobEvent):void
 admob.getScreenSize()
 
 ```
+
+### admob_ane_20150519 changes
+1.upgrade admob sdk to 7.2<br/>
+2.fix bottom_center position problem with ios 8 in no full screen app
+3.Function  admob.setKeys can be called multiple times now
 
 ### admob_ane_20150209 changes
 1.upgrade admob sdk to 7.0<br/>
