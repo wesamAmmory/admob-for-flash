@@ -121,7 +121,7 @@ package
 				}
 				if (adsize == null)
 				{
-					adsize=new AdmobSize(320, 50);
+					adsize=Admob.BANNER_STANDARD;
 				}
 				if (label == "hide")
 				{
