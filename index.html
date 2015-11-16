@@ -1,114 +1,148 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Admob-for-flash : admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising。show actionscript 3 load advertising" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Admob-for-flash</title>
+    <meta charset="UTF-8">
+    <title>Admob-for-flash by lilili87222</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Admob-for-flash</h1>
+      <h2 class="project-tagline">admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising。show actionscript 3 load advertising</h2>
+      <a href="https://github.com/lilili87222/admob-for-flash" class="btn">View on GitHub</a>
+      <a href="https://github.com/lilili87222/admob-for-flash/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/lilili87222/admob-for-flash/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/lilili87222/admob-for-flash">View on GitHub</a>
+    <section class="main-content">
+      <h2>
+<a id="admob-for-flash-" class="anchor" href="#admob-for-flash-" aria-hidden="true"><span class="octicon octicon-link"></span></a>admob for flash </h2>
 
-          <h1 id="project_title">Admob-for-flash</h1>
-          <h2 id="project_tagline">admob ane lib for flash iOS app and flash android app.it enable air application load native Advertising。show actionscript 3 load advertising</h2>
+<p>admob ane for air mobile ad ,support Interstitial and Banner<br>
+support  landscape and portrait  and autoOrient<br>
+support ios and android<br>
+support all native event<br>
+support ios 64,air sdk 16 <br>
+base on admob ios sdk 7.2.2 and admob android sdk(Google Play services 7.3) 7.3<br>
+requred  air sdk 19.0 or later <br></p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/lilili87222/admob-for-flash/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/lilili87222/admob-for-flash/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+<p>very easy to use ,just three line code for simple usage<br></p>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to admob for flash.</h3>
+<h3>
+<a id="file-list" class="anchor" href="#file-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>file list</h3>
 
-<p>admob for flash is a free ane lib for flash developer.it enable flash mobile application load admob advertising. it is easy to use.</p>
+<ul>
+<li>admob_all_in_one_20151115.ane  contains admob for ios and for android in one file,very convenient.<br>most user use this file,it contain google play service sdk<br>
+</li>
+<li>admob_without_gps_20150209.ane   if you use other ane with google play service with admob at the same app,then use this<br>
+</li>
+</ul>
 
-<p>user can show all type of banner ad and full screen(interstitial advertising) ad of admob
-user can show landscope and portrait advertising in actionscript 3 mobile application
-user can set postion of ad</p>
-
-<p>lib for android  can been download from 
-<a href="http://code.google.com/p/flash-for-mobile/">http://code.google.com/p/flash-for-mobile/</a></p>
-
-<h3>Requirements</h3>
-
-<p>flash air sdk 3.5 or higher,</p>
-
-<p>iPhone or iPad or android devices </p>
-
-<h3>mark</h3>
-
-<p>this lib do not work on pc and Simulator，but you can pack and debug on pc.and  show a  well on device</p>
-
-<h3>download</h3>
-
-<p><a href="http://flash-air-admob-ane-for-ios.googlecode.com/files/admob_ios_android_ane6.3.zip">http://flash-air-admob-ane-for-ios.googlecode.com/files/admob_ios_android_ane6.3.zip</a> </p>
-
-<h3>useage</h3>
-
-<p>you can use this lib on pc and mac ,build for android or ios air application with flash bulder or flash cs or flash develop.just do like this</p>
+<h3>
+<a id="show-simple-admob-banner-" class="anchor" href="#show-simple-admob-banner-" aria-hidden="true"><span class="octicon octicon-link"></span></a>show simple admob banner :</h3>
 
 <pre><code>var admob:Admob=Admob.getInstance();
-if (admob.isSupported)
+admob.setKeys("your admob banner id","your admob institial id");
+admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
+</code></pre>
+
+<h3>
+<a id="show-admob--interstitial-ad-full-screen-ad" class="anchor" href="#show-admob--interstitial-ad-full-screen-ad" aria-hidden="true"><span class="octicon octicon-link"></span></a>show admob  Interstitial ad (full screen ad)</h3>
+
+<pre><code>var admob:Admob=Admob.getInstance();
+admob.setKeys("your admob banner id","your admob institial id");////replace this fake ID with your really ID
+if (admob.isInterstitialReady())// check ad has cached ,if true show it
 {
-    admob.createADView(AdSize.BANNER, "a1514bcdferve3437"); //create a banner ad view.this init the view 
-    admob.addToStage(0, 0); // ad to displaylist position 0,0
-    admob.load(false); // send a ad request.  
+     admob.showInterstitial();
+}
+else
+{
+    admob.cacheInterstitial();
 }
 </code></pre>
 
-<p>for android.  you need add in application-app.xml
-</p>
+<h3>
+<a id="show-test-ad-banner-with-extra-parameter" class="anchor" href="#show-test-ad-banner-with-extra-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>show test ad banner with extra parameter</h3>
 
-<h3>useage  detail</h3>
+<pre><code>var extraParam:ExtraParameter=new ExtraParameter();
+//extraParam.isChildApp=true;
+extraParam.testDeviceID="true";// for android
+//extraParam.testDeviceID="your device"; for ios 
 
-<pre><code>more function
-1. handler  ad event  like this.
-admob.dispatcher.addEventListener(AdEvent.onReceiveAd,onAdEvent);
-2. get ad size info
-admob.getAdSize()
-3.get screen size info
-admob.getScreenSize()
-4. get mac address or device id of device
-admob.getMacAddress()
-
-
-update:
-1.include ios and android in one file
-2.enable debug and pack on pc
-3.base on admob6.3 no more use udid
-4.enable get ad size info and screen size info
+var admob:Admob=Admob.getInstance();
+admob.setKeys("your admob banner id","your admob institial id");
+admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 </code></pre>
 
-<h3>Support or Contact</h3>
+<h3>
+<a id="for-android--you-need-add-in-application-appxml" class="anchor" href="#for-android--you-need-add-in-application-appxml" aria-hidden="true"><span class="octicon octicon-link"></span></a>for android.  you need add in application-app.xml</h3>
 
-<p><a href="mailto:javaflashproject@gmail.com">javaflashproject@gmail.com</a> for help</p>
+<pre><code>&lt;android&gt;
+        &lt;manifestAdditions&gt;&lt;![CDATA[
+            &lt;manifest android:installLocation="auto"&gt;
+                &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/&gt;
+                &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/&gt;
+                 &lt;uses-permission android:name="android.permission.READ_PHONE_STATE"/&gt;
+                 &lt;application&gt;
+ &lt;meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" /&gt;
+                   &lt;activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/&gt;
+                 &lt;/application&gt;
+            &lt;/manifest&gt;
+        ]]&gt;&lt;/manifestAdditions&gt;
+    &lt;/android&gt;
+</code></pre>
 
-<p>qq群：56892018</p>
-      </section>
-    </div>
+<p><strong>more function</strong></p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Admob-for-flash maintained by <a href="https://github.com/lilili87222">lilili87222</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+<ul>
+<li>1. handler  ad event  like this.</li>
+</ul>
+
+<pre><code>admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
+</code></pre>
+
+<ul>
+<li>2. get ad size info</li>
+</ul>
+
+<pre><code>protected function onAdReceived(event:AdmobEvent):void
+{
+    if(event.type==AdmobEvent.onBannerReceive){
+    trace(event.data.width,event.data.height);
+    }
+}
+</code></pre>
+
+<ul>
+<li>3.get screen size info,old version function</li>
+</ul>
+
+<pre><code>admob.getScreenSize()
+
+</code></pre>
+
+<h3>
+<a id="admob_ane_20151115-changes" class="anchor" href="#admob_ane_20151115-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>admob_ane_20151115 changes</h3>
+
+<p>1.upgrade admob sdk to 7.3<br>
+2.add new banner type BANNER_STANDARD</p>
+
+<p>related lib: <a href="https://github.com/lilili87222/as3-air-ad-network-framework">https://github.com/lilili87222/as3-air-ad-network-framework</a><br></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/lilili87222/admob-for-flash">Admob-for-flash</a> is maintained by <a href="https://github.com/lilili87222">lilili87222</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-              <script type="text/javascript">
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -118,7 +152,6 @@ update:
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
