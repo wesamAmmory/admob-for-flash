@@ -1,9 +1,7 @@
 admob for flash 
 ------
-related lib: https://github.com/lilili87222/as3-air-ad-network-framework<br/>
-project home:https://github.com/lilili87222/admob-for-flash/ <br />
-download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
-
+admob ane for flash air iOS app and actionscript android app.include banner and Interstitial native Advertising.<br/>
+this Admob ANE suport admob 1 and admob 2,not using uuid.using the last sdk.
 admob ane for air mobile ad ,support Interstitial and Banner<br/>
 support  landscape and portrait  and autoOrient<br/>
 support ios and android<br/>
@@ -140,6 +138,9 @@ enable Interstitial admob ad
 4.enable get ad size info and screen size info<br/>
 
 contact:wohaosea@gmail.com
+related lib: https://github.com/lilili87222/as3-air-ad-network-framework<br/>
+project home:https://github.com/lilili87222/admob-for-flash/ <br />
+download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
 
 if user like this lib,you can download and review our game <br/>
 https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8 <br/>
