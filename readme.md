@@ -53,6 +53,7 @@ admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 <android>
         <manifestAdditions><![CDATA[
 			<manifest android:installLocation="auto">
+			    <uses-permission android:name="android.permission.INTERNET"/>
 			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 			     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
