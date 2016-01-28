@@ -38,13 +38,13 @@ package
 			}
 			
 			extraParam=new ExtraParameter();
-			extraParam.setLocation(40, 40);
-			extraParam.birthday=new Date();
-			extraParam.contentUrl="http://www.google.com";
-			extraParam.keyWord="air admob ane";
-			extraParam.isChildApp=true;
+//			extraParam.setLocation(40, 40);
+//			extraParam.birthday=new Date();
+//			extraParam.contentUrl="http://www.google.com";
+//			extraParam.keyWord="air admob ane";
+//			extraParam.isChildApp=true;
 //			extraParam.testDeviceID="C10FA0762720A0FD0E64FE3824A8B64F";//set device id for ios to show test
-			extraParam.testDeviceID="true";//set true for android to show test
+//			extraParam.testDeviceID="true";//set true for android to show test
 		}
 
 		private function initUI():void
