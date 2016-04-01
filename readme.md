@@ -49,7 +49,26 @@ var admob:Admob=Admob.getInstance();
 admob.setKeys("your admob banner id","your admob institial id");
 admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 ```
-###for android.  you need add in application-app.xml
+
+### for ios add network permission NSAppTransportSecurity
+```
+ <iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+				<key>NSAppTransportSecurity</key>
+			<dict>
+			 <key>NSAllowsArbitraryLoads</key>
+			 <true/>
+			</dict>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+```
+###for android  you need add in application-app.xml
 ```
 <android>
         <manifestAdditions><![CDATA[
