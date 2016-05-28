@@ -5,7 +5,7 @@ package
 	import flash.display.StageScaleMode;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
-
+	
 	import so.cuo.platform.admob.Admob;
 	import so.cuo.platform.admob.AdmobEvent;
 	import so.cuo.platform.admob.AdmobSize;
@@ -14,9 +14,9 @@ package
 	public class demo extends Sprite
 	{
 		private var admob:Admob;
-		public var fullID:String="ca-app-pub-xxxxxxxxxxxxxx/xxxxxxxxxxx";
-		public var bannerID:String="ca-app-pub-xxxxxxxxxxxxxx/xxxxxxxxxxx";
-//error admob id may cause ERROR_CODE_ERNAL_ERROR 
+		public var fullID:String="admob fullid";
+		public var bannerID:String="admob banner id";
+		//error admob id may cause ERROR_CODE_ERNAL_ERROR 
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField
@@ -30,7 +30,7 @@ package
 			admob=Admob.getInstance();
 			if (admob.supportDevice)
 			{
-				admob.setKeys(bannerID, fullID);
+				admob.setKeys(bannerID,fullID);
 				admob.addEventListener(AdmobEvent.onInterstitialReceive, onAdEvent);
 				admob.addEventListener(AdmobEvent.onBannerReceive, onAdEvent);
 				admob.enableTrace=true;
@@ -53,13 +53,13 @@ package
 			stage.scaleMode=StageScaleMode.NO_SCALE;
 			var ui:UI=new UI(onClick);
 			addChild(ui);
-			ui.addButton("relation", 20, 20);
-			ui.addButton("absolute", 200, 20);
+			ui.addButton("relation", 20, 40);
+			ui.addButton("absolute", 200, 40);
 			ui.addButton("hide", 20, 120);
 			ui.addButton("interstitial", 200, 120);
 
-			xPosition=ui.addButton("x", 20, 220);
-			yPosition=ui.addButton("y", 200, 220);
+			xPosition=ui.addButton("8", 20, 220);
+			yPosition=ui.addButton("300", 200, 220);
 			bannerType=ui.addButton("bannerType", 20, 320);
 			xPosition.type=yPosition.type=bannerType.type=TextFieldType.INPUT;
 			xPosition.border=yPosition.border=bannerType.border=true;
@@ -82,7 +82,7 @@ package
 
 		private function onClick(label:String):void
 		{
-
+			
 			trace("click flash stage-------1", stage.stageWidth, stage.stageHeight, stage.orientation);
 			if (!admob.supportDevice)
 			{
@@ -101,7 +101,7 @@ package
 				}
 				if (bannerTypeValue == 2)
 				{
-					adsize=Admob.IAB_BANNER;
+					adsize=Admob.LargeBanner;
 				}
 				if (bannerTypeValue == 3)
 				{
@@ -109,11 +109,11 @@ package
 				}
 				if (bannerTypeValue == 4)
 				{
-					adsize=Admob.IAB_MRECT;
+					adsize=Admob.MediumRectangle;
 				}
 				if (bannerTypeValue == 5)
 				{
-					adsize=Admob.IAB_WIDE_SKYSCRAPER;
+					adsize=Admob.FullBanner;
 				}
 				if (bannerTypeValue == 6)
 				{
