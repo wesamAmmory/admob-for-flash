@@ -2,7 +2,8 @@ Admob ANE for Flash Air
 ==============================
 1. [Admob ANE Description](#admob-ane-description)
 2. [Admob ANE For Air Features](#admob-ane-for-air-features)
-	1.[Init Admob ANE ](#1init-admob-ane)    
+3. [Quick Start](#quick-start)    
+	1.[Init Admob ANE ](#1init-admob-ane)     
 	2.[Add Admob Banner in adobe Air App](#2add-admob-banner-in-adobe-air-app)    
 	3.[Remove Banner](#3remove-banner)    
 	4.[Admob Native Express Ads](#4admob-native-express-ads)    
@@ -14,8 +15,7 @@ Admob ANE for Flash Air
 	10.[android permission config](#10android-permission-config)    
 	11.[Screen size function](#11screen-size-function)    
 	12.[ANE ID](#12ane-id)    
-3. [Quick Start](#quick-start)
-4. [last changes](#last-changes)
+4. [change log](#change-log)
 5. [Screenshots](#screenshots)
 6. [Links](#links)
 7. [License](#license)
@@ -194,7 +194,7 @@ Admob.getInstance().getScreenSize()
 ```
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
-## last changes
+## change log
 1.supports new native express ads    
 2.supports offset Y when use related position    
 3.supports multi banner at same screen    
@@ -202,7 +202,7 @@ Admob.getInstance().getScreenSize()
 5.optimize api name    
 6.fix Interstitial not shown when built with air 22 ios    
 7.fix banner is shown overlying Interstitial some times ios    
-[change log](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
+[more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots
 ![ScreenShot](https://github.com/lilili87222/admob-for-flash/blob/master/images/screen.jpg?raw=true)
