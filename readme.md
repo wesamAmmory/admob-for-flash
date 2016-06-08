@@ -2,18 +2,18 @@ Admob ANE for Flash Air
 ==============================
 1. [Admob ANE Description](#admob-ane-description)
 2. [Admob ANE For Air Features](#admob-ane-for-air-features)
-	1.[Init Admob ANE ](#init-admob-ane)<br/>
-	2.[Add Admob Banner in adobe Air App](#add-admob-banner-in-adobe-air-app)<br/>
-	3.[Remove Banner](#remove-banner)<br/>
-	4.[Admob Native Express Ads](#admob-native-express-ads)<br/>
-	5.[Admob ANE Show Interstitial ](#admob-ane-show-interstitial )<br/>
-	6.[Custom Admob Banner Ad Sizes](#custom-admob-banner-ad-sizes)<br/>
-	7.[Set Admob Target Param](#set-admob-target-param)<br/>
-	8.[Ad Events](#ad-events)<br/>
-	9.[IOS  permission config](#ios-permission-config)<br/>
-	10.[android permission config](#android-permission-config)<br/>
-	11.[Screen size function](#screen-size-function)<br/>
-	12.[ANE ID](#ane-id)<br/>
+	1.[Init Admob ANE ](#init-admob-ane)    
+	2.[Add Admob Banner in adobe Air App](#add-admob-banner-in-adobe-air-app)    
+	3.[Remove Banner](#remove-banner)    
+	4.[Admob Native Express Ads](#admob-native-express-ads)    
+	5.[Admob ANE Show Interstitial ](#admob-ane-show-interstitial )    
+	6.[Custom Admob Banner Ad Sizes](#custom-admob-banner-ad-sizes)    
+	7.[Set Admob Target Param](#set-admob-target-param)    
+	8.[Ad Events](#ad-events)    
+	9.[IOS  permission config](#ios-permission-config)    
+	10.[android permission config](#android-permission-config)    
+	11.[Screen size function](#screen-size-function)    
+	12.[ANE ID](#ane-id)    
 3. [Quick Start](#quick-start)
 4. [last changes](#last-changes)
 5. [Screenshots](#screenshots)
@@ -39,7 +39,7 @@ This Admob ANE  was published  since Sep, 2012, and has been downloaded more tha
 - [x] Support landscape and portrait  and autoOrient
 - [x] Support AdRequest targeting methods,such as children target,test mode
 - [x] Support Air SDK 17 to the last version 
-- [x] Support IOS 9 to the last version 
+- [x] Support IOS 7 to the last version 
 - [x] Very simple API
 
 
@@ -67,15 +67,18 @@ By default, banners are visible. To  hide a banner,
 ```
 
 #### 4.Admob Native Express Ads
-How to show native express ads in flash air ios and android application?<br/>
-native express ads is a admob new ad format similar to banner,so the api is similar too<br/>
-Show admob native banner.<br/>
-nativeID is got from apps.admob.com format like ca-app-pub-3940256099942544/2562852117<br/>
-AdSize is the value you set in apps.admob.com<br/>
-if you want to show multi native banner ,you can pass a instanceName value<br/>
+How to show native express ads in flash air ios and android application?    
+native express ads is a admob new ad format similar to banner,so the api is similar too    
+Show admob native banner.        
 ```
     Admob.getInstance().showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
 ```
+
+nativeID is got from apps.admob.com format like ca-app-pub-3940256099942544/2562852117    
+AdSize is the value you set in apps.admob.com    
+if you want to show multi native banner ,you can pass a instanceName value
+
+
 Hide admob native banner
 ```
     Admob.getInstance().hideNativeBanner();
@@ -106,7 +109,7 @@ In addition to constants on _AdSize_, you can also create a custom size:
 set Admob target param such as test Ads and children app
 If you want to test the ads or the your app with children target,you can set with admob ANE easy
 ```
-        extraParam=new ExtraParameter();
+       extraParam=new ExtraParameter();
 	extraParam.testDeviceID="true";
 	extraParam.isChildApp=true;
 	Admob.getInstance().showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER,80,extraParam);
@@ -199,13 +202,13 @@ Admob.getInstance().getScreenSize()
 5.optimize api name    
 6.fix Interstitial not shown when built with air 22 ios    
 7.fix banner is shown overlying Interstitial some times ios    
-[change histore](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
+[change log](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots
 ![ScreenShot](https://github.com/lilili87222/admob-for-flash/blob/master/images/banner.png?raw=true)![ScreenShot](https://github.com/lilili87222/admob-for-flash/blob/master/images/interstitial.png?raw=true)
 
 ## Links
-Download  https://github.com/lilili87222/admob-for-flash/archive/master.zip<br/>    
+Download  https://github.com/lilili87222/admob-for-flash/archive/master.zip    
 Our Games https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8    
 donation paypal li_li_li87222@163.com     
 admob http://apps.admob.com    
