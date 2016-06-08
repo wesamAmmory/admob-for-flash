@@ -135,7 +135,7 @@ Here we'll demonstrate setting ad events on a interstitial,and show interstitial
 
 
 
-###  9. IOS  permission config
+###  9.IOS  permission config
 NSAppTransportSecurity is required for ios 9,if you compile with air 21,it is required to add NSAppTransportSecurity key
 ```
 	<key>NSAppTransportSecurity</key>
@@ -164,7 +164,7 @@ simple example
 ```
 
 
-### 10. android permission config
+### 10.android permission config
 ```
 <android>
         <manifestAdditions><![CDATA[
@@ -183,14 +183,14 @@ simple example
     </android>
 ```
 
-### 11. Screen size function
+### 11.Screen size function
 this will get  screen size ,unit is dp
 ```
 Admob.getInstance().getScreenSize()
 
 ```
 
-### 12. ANE ID
+### 12.ANE ID
 ```
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
