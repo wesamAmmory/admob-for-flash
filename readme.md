@@ -1,56 +1,149 @@
-admob for flash 
-------
-admob ane for flash air iOS app and actionscript android app.include banner and Interstitial native Advertising.<br/>
-this Admob ANE suport admob 1 and admob 2,not using uuid.using the last sdk.
-admob ane for air mobile ad ,support Interstitial and Banner<br/>
-support  landscape and portrait  and autoOrient<br/>
-support ios and android<br/>
-support all native event<br/>
-support ios 64,air sdk 16 <br/>
-support ios 9<br/>
-base on admob ios sdk 7.6.0 and admob android sdk(Google Play services 8.1) 8.1<br/>
-requred  air sdk 20.0 or later <br/>
+Admob ANE for Flash Air
+==============================
+
+## Admob ANE Document Contents
+1. [Admob ANE Description](#admob-ane-description)
+2. [Admob ANE For Air Features](#admob-ane-for-air-features)
+	1.[Init Admob ANE ](#init-admob-ane)
+	2.[Add Admob Banner in adobe Air App](#add-admob-banner-in-adobe-air-app)
+	3.[Remove Banner](#remove-banner)
+	4.[Admob Native Express Ads](#admob-native-express-ads)
+	5.[Admob ANE Show Interstitial ](#admob-ane-show-interstitial )
+	6.[Custom Admob Banner Ad Sizes](#custom-admob-banner-ad-sizes)
+	7.[Set Admob Target Param](#set-admob-target-param)
+	8.[Ad Events](#ad-events)
+	9.[IOS  permission config](#ios-permission-config)
+	10.[android permission config](#android-permission-config)
+	11.[Screen size function](#screen-size-function)
+	12.[ANE ID](#ane-id)
+3. [Quick Start](#quick-start)
+4. [last changes](#last-changes)
+5. [Screenshots](#screenshots)
+6. [Links](#links)
+7. [License](#license)
+
+## Admob ANE Description
+Admob Air Native Extention(Admob ANE) provides a way to integrate admob ads in Air ios and Air Android Game and app.
+You can use it for Air iOS and Android App with the same actionscript  code,not need any change ,not need java
+or oc.You not need Admob ANE for ios and Admob ANE for android Separate version any more with this Ane.
+
+The Google Mobile Ads SDK is the latest generation in Google mobile advertising featuring refined ad formats and streamlined APIs for access to mobile ad networks and advertising solutions. The SDK enables Air mobile app developers to maximize their monetization in native mobile apps.
+
+This Admob ANE  was published  since Sep, 2012, and has been downloaded more than 100,000 times. Now it's the No. 1 monetization ANE plugin for Flash Air community,More people use, making the api more friendly,the plugin more stable.Thank you for feedback questions and provide advice, thank you for the support and donations.
 
 
-very easy to use ,just three line code for simple usage<br/>
+## Admob ANE For Air Features
+- [x] Support IOS and Android in one ane with the same api
+- [x] Support banner(All Banner Sizes)
+- [x] Support Intersitial
+- [x] Support native express ads
+- [x] Support all native events
+- [x] Support landscape and portrait  and autoOrient
+- [x] Support AdRequest targeting methods,such as children target,test mode
+- [x] Support Air SDK 17 to the last version 
+- [x] Support IOS 9 to the last version 
+- [x] Very simple API
 
-### file list 
- - admob_all_in_one_2060127.ane  contains admob for ios and for android in one file,very convenient.<br/>most user use this file,it contain google play service sdk<br/>
- - admob_without_gps_20160127.ane   if you use other ane with google play service with admob at the same app,then use this<br/>
 
-### show simple admob banner :
+## Quick Start
+#### 1.Init Admob ANE 
+Add Admob ane to air project build path , add the follow code in the script file
 ```
-var admob:Admob=Admob.getInstance();
-admob.setKeys("your admob banner id","your admob institial id");
-admob.showBanner(Admob.BANNER,AdmobPosition.BOTTOM_CENTER);
+    import so.cuo.platform.admob.*;
+    Admob.getInstance().setKeys("your admob banner id","your admob institial id");
+
+```
+#### 2.Add Admob Banner in adobe Air App 
+Here is the minimal code needed to show admob banner.
+```
+    Admob.getInstance().showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
+
 ```
 
-###show admob  Interstitial ad (full screen ad)
-```
-var admob:Admob=Admob.getInstance();
-admob.setKeys("your admob banner id","your admob institial id");////replace this fake ID with your really ID
-if (admob.isInterstitialReady())// check ad has cached ,if true show it
-{
-     admob.showInterstitial();
-}
-else
-{
-    admob.cacheInterstitial();
-}
-```
-### show test ad banner with extra parameter 
-```
-var extraParam:ExtraParameter=new ExtraParameter();
-//extraParam.isChildApp=true;
-extraParam.testDeviceID="true";// for android
-//extraParam.testDeviceID="your device"; for ios 
+The AdmobPosition class specifies where to place the banner. AdmobSize specifies witch size banner to show
 
-var admob:Admob=Admob.getInstance();
-admob.setKeys("your admob banner id","your admob institial id");
-admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
+#### 3.Remove Banner 
+By default, banners are visible. To  hide a banner,
+```
+    Admob.getInstance().hideBanner();
 ```
 
-### for ios add network permission NSAppTransportSecurity
+#### 4.Admob Native Express Ads
+How to show native express ads in flash air ios and android application?
+native express ads is a admob new ad format similar to banner,so the api is similar too
+Show admob native banner.
+nativeID is got from apps.admob.com format like ca-app-pub-3940256099942544/2562852117
+AdSize is the value you set in apps.admob.com
+if you want to show multi native banner ,you can pass a instanceName value
+```
+    Admob.getInstance().showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
+```
+Hide admob native banner
+```
+    Admob.getInstance().hideNativeBanner();
+```
+
+#### 5.Admob ANE Show Interstitial 
+How to integrate Interstitial into Air ios  app or flex android app?
+Here is the minimal  code to create an interstitial.
+```
+    Admob.getInstance().cacheInterstitial(); 
+```
+interstitials need to be loaded before shown. show at an appropriate
+stopping point in your app, check that the interstitail is ready before
+showing it:
+```
+    if (Admob.getInstance().isInterstitialReady()) {
+      Admob.getInstance().showInterstitial();
+    }
+```
+#### 6.Custom Admob Banner Ad Sizes
+In addition to constants on _AdSize_, you can also create a custom size:
+```
+    //Create a 320x250 banner.
+    AdSize adSize = new AdSize(320, 250);
+    Admob.getInstance().showBannerAbsolute(adSize,0,30);
+```
+#### 7.Set Admob Target Param
+set Admob target param such as test Ads and children app
+If you want to test the ads or the your app with children target,you can set with admob ANE easy
+```
+        extraParam=new ExtraParameter();
+	extraParam.testDeviceID="true";
+	extraParam.isChildApp=true;
+	Admob.getInstance().showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER,80,extraParam);
+```
+#### 8.Ad Events
+Both _Banner_ and _Interstitial_ contain the many ad events that you can
+register for. 
+Here we'll demonstrate setting ad events on a interstitial,and show interstitial when load success:
+```
+    Admob.getInstance().addEventListener(AdmobEvent.onInterstitialReceive, onAdEvent);
+	private function onAdEvent(event:AdmobEvent):void
+	{
+		if (event.type == AdmobEvent.onBannerReceive)
+		{
+			trace(event.instanceName,event.data.width, event.data.height);
+		}
+		if (event.type == AdmobEvent.onInterstitialReceive)
+		{
+			Admob.getInstance().showInterstitial();
+		}
+	}
+```
+
+
+
+###  9. IOS  permission config
+NSAppTransportSecurity is required for ios 9,if you compile with air 21,it is required to add NSAppTransportSecurity key
+```
+	<key>NSAppTransportSecurity</key>
+			<dict>
+			 <key>NSAllowsArbitraryLoads</key>
+			 <true/>
+			</dict>
+```
+simple example
 ```
  <iPhone>
         <InfoAdditions><![CDATA[
@@ -59,7 +152,7 @@ admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
 				<string>1</string>
 				<string>2</string>
 			</array>
-				<key>NSAppTransportSecurity</key>
+			<key>NSAppTransportSecurity</key>
 			<dict>
 			 <key>NSAllowsArbitraryLoads</key>
 			 <true/>
@@ -68,7 +161,9 @@ admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
         <requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone>
 ```
-###for android  you need add in application-app.xml
+
+
+### 10. android permission config
 ```
 <android>
         <manifestAdditions><![CDATA[
@@ -87,88 +182,36 @@ admob.showBannerAbsolute(Admob.SMART_BANNER,0,100,extraParam);
     </android>
 ```
 
-**more function**
-- 1. handler  ad event  like this.
+### 11. Screen size function
+this will get  screen size ,unit is dp
 ```
-admob.addEventListener(AdmobEvent.onBannerReceive,onAdReceived);
-```
-- 2. get ad size info
-```
-protected function onAdReceived(event:AdmobEvent):void
-{
-    if(event.type==AdmobEvent.onBannerReceive){
-	trace(event.data.width,event.data.height);
-    }
-}
-```
-- 3.get screen size info,old version function
-```
-admob.getScreenSize()
+Admob.getInstance().getScreenSize()
 
 ```
 
-### admob ane 2016 changes
-1.upgrade admob sdk to 7.6 and 8.1
-2.upgrade air sdk to 20,to support ios 9
+### 12. ANE ID
+```
+<extensionID>so.cuo.platform.admob</extensionID>
+```
+## last changes
+1.supports new native express ads
+2.supports offset Y when use related position
+3.supports multi banner at same screen
+4.optimize banner size const name
+5.optimize api name
+6.fix Interstitial not shown when built with air 22 ios
+7.fix banner is shown overlying Interstitial some times ios
+[change histore](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)
 
-### admob_ane_20151115 changes
-1.upgrade admob sdk to 7.3<br/>
-2.add new banner type BANNER_STANDARD
+## Screenshots
+![ScreenShot](https://github.com/lilili87222/admob-for-flash/blob/master/images/banner.png?raw=true) 
+![ScreenShot](https://github.com/lilili87222/admob-for-flash/blob/master/images/interstitial.png?raw=true) 
 
-### admob_ane_20150519 changes
-1.upgrade admob sdk to 7.2<br/>
-2.fix bottom_center position problem with ios 8 in no full screen app
-3.Function  admob.setKeys can be called multiple times now
+## Links
+Download  https://github.com/lilili87222/admob-for-flash/archive/master.zip<br/>
+Our Games https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8
+donation paypal li_li_li87222@163.com 
+admob http://apps.admob.com
 
-### admob_ane_20150209 changes
-1.upgrade admob sdk to 7.0<br/>
-2.fix banner position problem completely.tested on ios 7,io8 and ios 6 with air 17 beta.
-
-### admob_ane_20150126 changes
-1.add support for android x86 ,ios armv64,support air sdk 16<br/>
-2.fix ios 8 position problem.
-
-### 6.12.2 admob ane changes
-1.update admob sdk for ios to 6.12.2 <br/>
-2.make it easy to show test ad on android<br/>
-
-### 6.12.0 admob ane changes
-1.update admob sdk for ios to 6.12.0 <br/>
-2.add code tips document<br/>
-3.add admob extra parameter that control test mode,age,location,is child app and so on. <br/>
-4.refact demo code<br/>
-
-### admob ane 6.11.1 changes
-1.update admob sdk for ios to 6.11.1<br/>
-2.fix Errors/warnings on publishing Air app with admob extension using Flash Professional
-
-### 6.9.3 changes
-1.update admob sdk ios to 6.9.3 ,update android google service sdk to the last version<br/>
-2.trace the detail when load ad fail<br/>
-
-###6.8.0 changes
-1.update admob sdk ios 6.9.2 ,android google service sdk 4.3<br/>
-2.add getScreenSize function for show banner absolute<br/>
-
-###6.6.0 changes
-1.support  landscape and portrait  and autoOrient<br/>
-2.support relation position and Absolute position<br/>
-3.support ios 5, ios 6, ios 7 ,and android<br/>
-4.update admob sdk to last version<br/>
-###6.4.1 changes
-enable Interstitial admob ad 
-###6.3.1 changes
-1.include ios and android in one file<br/>
-2.enable debug and pack on pc<br/>
-3.base on admob6.3 no more use udid<br/>
-4.enable get ad size info and screen size info<br/>
-
-contact:wohaosea@gmail.com
-related lib: https://github.com/lilili87222/as3-air-ad-network-framework<br/>
-project home:https://github.com/lilili87222/admob-for-flash/ <br />
-download:https://github.com/lilili87222/admob-for-flash/archive/master.zip
-
-if user like this lib,you can download and review our game <br/>
-https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8 <br/>
-donate and download more ane  <br/>
-http://www.cuo.so/ane-list/index.html  <br/>
+## License
+[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html)
