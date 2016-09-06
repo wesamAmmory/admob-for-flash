@@ -195,13 +195,8 @@ Admob.getInstance().getScreenSize()
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
 ## change log
-1.supports new native express ads    
-2.supports offset Y when use related position    
-3.supports multi banner at same screen    
-4.optimize banner size const name    
-5.optimize api name    
-6.fix Interstitial not shown when built with air 22 ios    
-7.fix banner is shown overlying Interstitial some times ios    
+1.upgrade ios(7.8) and android sdk(9.2)
+2.fix android resource not found error
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots

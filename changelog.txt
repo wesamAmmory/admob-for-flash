@@ -1,3 +1,7 @@
+### admob ane 20160906
+1.upgrade sdk
+2.fix android not found resource bug
+
 ### admob ane 20160610
 1.supports new native express ads
 2.supports offset Y when use related position
