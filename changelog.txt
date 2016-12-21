@@ -1,3 +1,6 @@
+### admob ane 20161220
+1.update ios sdk to  and android sdk 
+
 ### admob ane 20160906
 1.upgrade sdk
 2.fix android not found resource bug

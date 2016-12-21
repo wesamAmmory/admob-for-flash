@@ -195,8 +195,7 @@ Admob.getInstance().getScreenSize()
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
 ## change log
-1.upgrade ios(7.8) and android sdk(9.2)
-2.fix android resource not found error
+1.upgrade ios(7.13) and android sdk(10.0)
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots
