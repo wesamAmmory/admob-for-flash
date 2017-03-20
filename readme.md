@@ -159,7 +159,7 @@ if(admob.isVideoReady()){
 ###  10.IOS  min version config
 MinimumOSVersion is required for ios ,admob reqired ios 8 and later
 ```
-		<key>MinimumOSVersion</key>
+	<key>MinimumOSVersion</key>
         <string>8.0</string>
 ```
 simple example
