@@ -11,7 +11,7 @@ Admob ANE for Flash Air
 	6.[Custom Admob Banner Ad Sizes](#6custom-admob-banner-ad-sizes)    
 	7.[Set Admob Target Param](#7set-admob-target-param)    
 	8.[Ad Events](#8ad-events)    
-        9.[Admob Rewarded Video](#9admob-rewarded-video)
+        9.[Admob Rewarded Video](#9admob-rewarded-video)    
 	10.[IOS  permission config](#10ios-permission-config)    
 	11.[android permission config](#11android-permission-config)    
 	12.[Screen size function](#12screen-size-function)    
