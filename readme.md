@@ -27,7 +27,7 @@ or oc.You not need Admob ANE for ios and Admob ANE for android Separate version 
 
 The Google Mobile Ads SDK is the latest generation in Google mobile advertising featuring refined ad formats and streamlined APIs for access to mobile ad networks and advertising solutions. The SDK enables Air mobile app developers to maximize their monetization in native mobile apps.
 
-This Admob ANE  was published  since Sep, 2012, and has been downloaded more than 100,000 times. Now it's the No. 1 monetization ANE plugin for Flash Air community,More people use, making the api more friendly,the plugin more stable.Thank you for feedback questions and provide advice, thank you for the support and donations.
+
 
 
 ## Admob ANE For Air Features
@@ -35,11 +35,12 @@ This Admob ANE  was published  since Sep, 2012, and has been downloaded more tha
 - [x] Support banner(All Banner Sizes)
 - [x] Support Intersitial
 - [x] Support native express ads
+- [x] Support Rewarded Video
 - [x] Support all native events
 - [x] Support landscape and portrait  and autoOrient
 - [x] Support AdRequest targeting methods,such as children target,test mode
-- [x] Support Air SDK 17 to the last version 
-- [x] Support IOS 7 to the last version 
+- [x] Support Air SDK 23 to the last version 
+- [x] Support IOS 8 to the last version 
 - [x] Very simple API
 
 
@@ -209,6 +210,7 @@ Admob.getInstance().getScreenSize()
 ```
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
+
 ## change log
 1.update ios sdk and android sdk
 2.add support for rewarded video 
@@ -217,11 +219,16 @@ Admob.getInstance().getScreenSize()
 ## Screenshots
 ![ScreenShot](https://github.com/lilili87222/admob-for-flash/blob/master/images/screen.jpg?raw=true)
 
+
+
+This Admob ANE  was published  since Sep, 2012, and has been downloaded more than 100,000 times. Now it's the No. 1 monetization ANE plugin for Flash Air community,More people use, making the api more friendly,the plugin more stable.Thank you for feedback questions and provide advice, thank you for the support and donations.
+
 ## Links
 Download  https://github.com/lilili87222/admob-for-flash/archive/master.zip    
 Our Games https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8    
 donation paypal li_li_li87222@163.com     
 admob http://apps.admob.com    
+
 
 ## License
 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html)
