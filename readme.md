@@ -12,7 +12,7 @@ Admob ANE for Flash Air
 	7.[Set Admob Target Param](#7set-admob-target-param)    
 	8.[Ad Events](#8ad-events)    
         9.[Admob Rewarded Video](#9admob-rewarded-video)    
-	10.[IOS  permission config](#10ios-permission-config)    
+	10.[IOS  permission config](10ios--min-version-config)    
 	11.[android permission config](#11android-permission-config)    
 	12.[Screen size function](#12screen-size-function)    
 	13.[ANE ID](#13ane-id)    
