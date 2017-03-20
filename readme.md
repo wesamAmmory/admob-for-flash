@@ -133,16 +133,34 @@ Here we'll demonstrate setting ad events on a interstitial,and show interstitial
 	}
 ```
 
-
-
-###  9.IOS  permission config
-NSAppTransportSecurity is required for ios 9,if you compile with air 21,it is required to add NSAppTransportSecurity key
+#### 9.Admob Rewarded Video
+ _Video_ api is similar with _Interstitial_ 
+    
+Here we'll demonstrate setting ad events on a video,and show video when load success:
 ```
-	<key>NSAppTransportSecurity</key>
-			<dict>
-			 <key>NSAllowsArbitraryLoads</key>
-			 <true/>
-			</dict>
+if(admob.isVideoReady()){
+	admob.showVideo();
+}else{
+	admob.cacheVideo(videoID);
+}
+    Admob.getInstance().addEventListener(AdmobEvent.onVideoReceive, onVideoEvent);
+	private function onVideoEvent(event:AdmobEvent):void
+	{
+		if (event.type == AdmobEvent.onVideoReceive)
+		{
+			trace("load video success,you can show video now");
+		}
+		
+	}
+```
+
+
+
+###  10.IOS  min version config
+MinimumOSVersion is required for ios ,admob reqired ios 8 and later
+```
+		<key>MinimumOSVersion</key>
+        <string>8.0</string>
 ```
 simple example
 ```
@@ -153,18 +171,15 @@ simple example
 				<string>1</string>
 				<string>2</string>
 			</array>
-			<key>NSAppTransportSecurity</key>
-			<dict>
-			 <key>NSAllowsArbitraryLoads</key>
-			 <true/>
-			</dict>
+				<key>MinimumOSVersion</key>
+        <string>8.0</string>
 		]]></InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone>
 ```
 
 
-### 10.android permission config
+### 11.android permission config
 ```
 <android>
         <manifestAdditions><![CDATA[
@@ -183,19 +198,20 @@ simple example
     </android>
 ```
 
-### 11.Screen size function
+### 12.Screen size function
 this will get  screen size ,unit is dp
 ```
 Admob.getInstance().getScreenSize()
 
 ```
 
-### 12.ANE ID
+### 13.ANE ID
 ```
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
 ## change log
-1.upgrade ios(7.13) and android sdk(10.0)
+1.update ios sdk and android sdk
+2.add support for rewarded video 
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots

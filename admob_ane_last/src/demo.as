@@ -3,6 +3,8 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.events.Event;
+
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	
@@ -15,9 +17,10 @@ package
 	public class demo extends Sprite
 	{
 		private var admob:Admob;
-		public var bannerID:String="ca-app-pub-3940256099942544/2934735716";
-		public var fullID:String="ca-app-pub-3940256099942544/4411468910";
-		public var nativeID:String="ca-app-pub-3940256099942544/2562852117";
+		public var bannerID:String="-ca-app-pub-3940256099942544/2934735716";
+		public var fullID:String="-ca-app-pub-3940256099942544/4411468910";
+		public var nativeID:String="-ca-app-pub-3940256099942544/2562852117";
+		public var videoID:String="-ca-app-pub-3940256099942544/xxxxxxxxx";
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField
@@ -36,6 +39,10 @@ package
 				admob.addEventListener(AdmobEvent.onBannerReceive, onAdEvent);
 				admob.enableTrace=true;
 				trace(admob.getScreenSize(), admob.getScreenSize().height);
+				log.text+="supported\n";
+			}else{
+				trace("--------- not support");
+				log.text+="not supported\n";
 			}
 			
 			extraParam=new ExtraParameter();
@@ -50,6 +57,7 @@ package
 			admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
 			admob.cacheInterstitial(extraParam);
 			admob.showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
+			admob.showBannerAbsolute(AdmobSize.BANNER_320x50,0,250,null,"classicBanner");
 			
 		}
 		
@@ -60,15 +68,19 @@ package
 			var ui:UI=new UI(onClick);
 			addChild(ui);
 			ui.addButton("relation", 20, 40);
-			ui.addButton("absolute", 200, 40);
-			ui.addButton("hide", 20, 120);
-			ui.addButton("interstitial", 200, 120);
-			ui.addButton("native", 200, 320);
-			ui.addButton("hidenative", 300, 90);
+			ui.addButton("absolute", 160, 40);
+			ui.addButton("hide", 300, 40);
+			
+			xPosition=ui.addButton("8", 20, 120);
+			yPosition=ui.addButton("300", 160, 120);
+			bannerType=ui.addButton("bannerType", 300, 120);
+			
+			ui.addButton("native", 20, 240);
+			ui.addButton("hidenative", 160, 240);
+			
+			ui.addButton("interstitial", 20, 320);
+			ui.addButton("showVideo", 160, 320);
 
-			xPosition=ui.addButton("8", 20, 220);
-			yPosition=ui.addButton("300", 200, 220);
-			bannerType=ui.addButton("bannerType", 20, 320);
 			xPosition.type=yPosition.type=bannerType.type=TextFieldType.INPUT;
 			xPosition.border=yPosition.border=bannerType.border=true;
 		}
@@ -132,6 +144,7 @@ package
 				if (label == "hide")
 				{
 					admob.hideBanner();
+					admob.hideBanner("classicBanner");
 				}
 				if (label == "absolute")
 				{
@@ -165,6 +178,13 @@ package
 				{
 //					admob.hideNativeBanner("nativebanner");
 					admob.hideNativeBanner();
+				}
+				else if(label=="showVideo"){
+					if(admob.isVideoReady()){
+						admob.showVideo();
+					}else{
+						admob.cacheVideo(videoID);
+					}
 				}
 			}
 		}
