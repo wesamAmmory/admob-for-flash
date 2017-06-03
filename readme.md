@@ -213,8 +213,7 @@ Admob.getInstance().getScreenSize()
 ```
 
 ## change log
-1.update ios sdk and android sdk
-2.add support for rewarded video 
+1.add setMuted and setVolume function
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots
