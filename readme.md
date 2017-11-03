@@ -40,8 +40,8 @@ The Google Mobile Ads SDK is the latest generation in Google mobile advertising 
 - [x] Support all native events
 - [x] Support landscape and portrait  and autoOrient
 - [x] Support AdRequest targeting methods,such as children target,test mode
-- [x] Support Air SDK 23 to the last version 
-- [x] Support IOS 8 to the last version 
+- [x] Support Air SDK 27 to the last version 
+- [x] Support IOS 8 to ios 11 
 - [x] Very simple API
 
 
@@ -213,7 +213,8 @@ Admob.getInstance().getScreenSize()
 ```
 
 ## change log
-1.add setMuted and setVolume function
+
+20171101.update admob sdk 
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots

@@ -1,3 +1,7 @@
+### admob ane 20171101
+1.add mute sound switch
+2.update android and ios sdk to the last version
+
 ### admob ane 20170320
 1.update ios sdk and android sdk
 2.add support for rewarded video 
