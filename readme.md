@@ -40,7 +40,7 @@ The Google Mobile Ads SDK is the latest generation in Google mobile advertising 
 - [x] Support all native events
 - [x] Support landscape and portrait  and autoOrient
 - [x] Support AdRequest targeting methods,such as children target,test mode
-- [x] Support Air SDK 27 to the last version 
+- [x] Support Air SDK 25 to the last version 
 - [x] Support IOS 8 to ios 11 
 - [x] Very simple API
 
