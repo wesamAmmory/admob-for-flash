@@ -17,10 +17,10 @@ package
 	public class demo extends Sprite
 	{
 		private var admob:Admob;
-		public var bannerID:String="-ca-app-pub-3940256099942544/2934735716";
-		public var fullID:String="-ca-app-pub-3940256099942544/4411468910";
-		public var nativeID:String="-ca-app-pub-3940256099942544/2562852117";
-		public var videoID:String="-ca-app-pub-3940256099942544/xxxxxxxxx";
+		public var bannerID:String="ca-app-pub-3940256099942544/2934735716";
+		public var fullID:String="ca-app-pub-3940256099942544/4411468910";
+		public var nativeID:String="ca-app-pub-3940256099942544/2247696110";
+		public var videoID:String="ca-app-pub-3940256099942544/1712485313";
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField
@@ -54,7 +54,7 @@ package
 		
 		private function showStartAuto():void
 		{
-			admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
+		//	admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
 			admob.cacheInterstitial(extraParam);
 			admob.showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
 			admob.showBannerAbsolute(AdmobSize.BANNER_320x50,0,250,null,"classicBanner");
@@ -172,12 +172,12 @@ package
 				else if (label == "native")
 				{
 //					admob.showNativeBanner(nativeID,new AdmobSize(320,100),AdmobPosition.MIDDLE_CENTER,0);
-					admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
+				//	admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
 				}
 				else if (label == "hidenative")
 				{
 //					admob.hideNativeBanner("nativebanner");
-					admob.hideNativeBanner();
+				//	admob.hideNativeBanner();
 				}
 				else if(label=="showVideo"){
 					if(admob.isVideoReady()){

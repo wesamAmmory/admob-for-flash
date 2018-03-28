@@ -214,7 +214,7 @@ Admob.getInstance().getScreenSize()
 
 ## change log
 
-20171101.update admob sdk 
+20180328.update admob sdk 
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots
