@@ -113,7 +113,9 @@ If you want to test the ads or the your app with children target,you can set wit
 ```
        extraParam=new ExtraParameter();
 	extraParam.testDeviceID="true";
-	extraParam.isChildApp=true;
+	extraParam.isChildApp=true;//if is tagForChildDirectedTreatment,set true
+        extraParam.isDesignedForFamilies=true;
+        extraParam.nonPersonalizedAds=true;//if want to load non Personalized ads set true
 	Admob.getInstance().showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER,80,extraParam);
 ```
 #### 8.Ad Events
@@ -175,6 +177,15 @@ simple example
 			</array>
 				<key>MinimumOSVersion</key>
         <string>8.0</string>
+			<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+    <key>NSAllowsArbitraryLoadsForMedia</key>
+    <true/>
+    <key>NSAllowsArbitraryLoadsInWebContent</key>
+    <true/>
+</dict>
 		]]></InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone>
@@ -212,9 +223,11 @@ Admob.getInstance().getScreenSize()
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
 
-## change log
-
-20180328.update admob sdk 
+## change log 20180516
+1.update admob sdk 
+2.add tagForChildDirectedTreatment api
+3.add isDesignedForFamilies api
+4.add nonPersonalizedAds api required by eu-consent protocal
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots

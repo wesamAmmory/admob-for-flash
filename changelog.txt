@@ -1,3 +1,9 @@
+### admob ane 20180515
+1.update admob sdk 
+2.add tagForChildDirectedTreatment api
+3.add isDesignedForFamilies api
+4.add nonPersonalizedAds api required by eu-consent protocal
+
 ### admob ane 20180328
 1.update android and ios sdk
 2.add unityads adapter
