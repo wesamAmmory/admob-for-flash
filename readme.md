@@ -225,9 +225,9 @@ Admob.getInstance().getScreenSize()
 
 ## change log 20180516
 1.update admob sdk 
-2.add tagForChildDirectedTreatment api
-3.add isDesignedForFamilies api
-4.add nonPersonalizedAds api required by eu-consent protocal
+2.fix bug
+3.improve fill rate
+
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
 ## Screenshots

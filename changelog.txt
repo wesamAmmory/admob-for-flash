@@ -1,3 +1,8 @@
+### admob ane 20180616
+1. update admob sdk
+2.fix bug
+3. improve fill rate
+
 ### admob ane 20180515
 1.update admob sdk 
 2.add tagForChildDirectedTreatment api
