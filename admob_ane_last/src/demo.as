@@ -7,6 +7,7 @@ package
 	import flash.events.SecurityErrorEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	
@@ -19,11 +20,11 @@ package
 	public class demo extends Sprite
 	{
 		private var admob:Admob;
-		public var bannerID:String="ca-app-pub-3940256099942544/2934735716";
-		public var fullID:String="ca-app-pub-3940256099942544/4411468910";
-//		public var nativeID:String="ca-app-pub-3940256099942544/2934735716";
-		public var nativeID:String="ca-app-pub-3940256099942544/2247696110";
-		public var videoID:String="ca-app-pub-3940256099942544/1712485313";
+		public var appID:String;
+		public var bannerID:String;
+		public var fullID:String;
+		public var nativeID:String;
+		public var videoID:String;
 		public var extraParam:ExtraParameter;
 
 		public var xPosition:TextField
@@ -33,11 +34,25 @@ package
 		public function demo()
 		{
 			super();
-//			videoID="ca-app-pub-3940256099942544/5224354917";
+			var isIOS:Boolean=Capabilities.manufacturer.indexOf('iOS') > -1;
+			if(isIOS){
+				appID="ca-app-pub-3940256099942544~1458002511";
+				bannerID="ca-app-pub-3940256099942544/2934735716";
+				fullID="ca-app-pub-3940256099942544/4411468910";
+				videoID="ca-app-pub-3940256099942544/1712485313";
+				nativeID = "ca-app-pub-3940256099942544/3986624511";
+			}else{
+				appID="ca-app-pub-3940256099942544~3347511713";
+				bannerID="ca-app-pub-3940256099942544/6300978111";
+				fullID="ca-app-pub-3940256099942544/1033173712";
+				videoID="ca-app-pub-3940256099942544/5224354917";
+				nativeID = "ca-app-pub-3940256099942544/2247696110";
+			}
 			initUI();
 			admob=Admob.getInstance();
 			if (admob.supportDevice)
 			{
+				admob.initAdmobSDK(appID);
 				admob.setKeys(bannerID,fullID);
 				admob.addEventListener(AdmobEvent.onInterstitialReceive, onAdEvent);
 				admob.addEventListener(AdmobEvent.onBannerReceive, onAdEvent);
