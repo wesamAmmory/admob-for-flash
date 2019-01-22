@@ -174,8 +174,8 @@ simple example
 
 
 ### 11.android permission config
-Meta Config com.google.android.gms.ads.APPLICATION_ID  is reqired from admob 17
-Please replace ca-app-pub-3940256099942544~3347511713 with your admob 
+Meta Config com.google.android.gms.ads.APPLICATION_ID  is required from admob 17
+Please replace ca-app-pub-3940256099942544~3347511713 with your admob ID
 ```
 <android>
         <manifestAdditions><![CDATA[
@@ -212,9 +212,10 @@ Admob.getInstance().getScreenSize()
 ```
 
 ## change log 20190101
-1.update admob sdk 
-2.fix bug
-3.improve fill rate
+1.update admob sdk     
+2.support banner id for each banner    
+3.improve fill rate of video    
+4. support ios 12    and air 32    
 
 [more](https://github.com/lilili87222/admob-for-flash/blob/master/changelog.txt)    
 
