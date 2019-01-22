@@ -35,13 +35,11 @@ The Google Mobile Ads SDK is the latest generation in Google mobile advertising 
 - [x] Support IOS and Android in one ane with the same api
 - [x] Support banner(All Banner Sizes)
 - [x] Support Intersitial
-- [x] Support native express ads
 - [x] Support Rewarded Video
-- [x] Support all native events
 - [x] Support landscape and portrait  and autoOrient
 - [x] Support AdRequest targeting methods,such as children target,test mode
-- [x] Support Air SDK 25 to the last version 
-- [x] Support IOS 8 to ios 11 
+- [x] Support Air SDK 30 to the last version 
+- [x] Support IOS 8 to ios 12 
 - [x] Very simple API
 
 
@@ -50,13 +48,13 @@ The Google Mobile Ads SDK is the latest generation in Google mobile advertising 
 Add Admob ane to air project build path , add the follow code in the script file
 ```
     import so.cuo.platform.admob.*;
-    Admob.getInstance().setKeys("your admob banner id","your admob institial id");
+    Admob.getInstance().initAdmobSDK("your admob app ID");
 
 ```
 #### 2.Add Admob Banner in adobe Air App 
 Here is the minimal code needed to show admob banner.
 ```
-    Admob.getInstance().showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
+    Admob.getInstance().showBanner("your banner ID ",AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
 
 ```
 
@@ -68,29 +66,12 @@ By default, banners are visible. To  hide a banner,
     Admob.getInstance().hideBanner();
 ```
 
-#### 4.Admob Native Express Ads
-How to show native express ads in flash air ios and android application?    
-native express ads is a admob new ad format similar to banner,so the api is similar too    
-Show admob native banner.        
-```
-    Admob.getInstance().showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
-```
 
-nativeID is got from apps.admob.com format like ca-app-pub-3940256099942544/2562852117    
-AdSize is the value you set in apps.admob.com    
-if you want to show multi native banner ,you can pass a instanceName value
-
-
-Hide admob native banner
-```
-    Admob.getInstance().hideNativeBanner();
-```
-
-#### 5.Admob ANE Show Interstitial 
+#### 4.Admob ANE Show Interstitial 
 How to integrate Interstitial into Air ios  app or flex android app?
 Here is the minimal  code to create an interstitial.
 ```
-    Admob.getInstance().cacheInterstitial(); 
+    Admob.getInstance().cacheInterstitial("your Interstitial ID "); 
 ```
 interstitials need to be loaded before shown. show at an appropriate
 stopping point in your app, check that the interstitail is ready before
@@ -100,14 +81,14 @@ showing it:
       Admob.getInstance().showInterstitial();
     }
 ```
-#### 6.Custom Admob Banner Ad Sizes
+#### 5.Custom Admob Banner Ad Sizes
 In addition to constants on _AdSize_, you can also create a custom size:
 ```
     //Create a 320x250 banner.
     AdSize adSize = new AdSize(320, 250);
     Admob.getInstance().showBannerAbsolute(adSize,0,30);
 ```
-#### 7.Set Admob Target Param
+#### 6.Set Admob Target Param
 set Admob target param such as test Ads and children app
 If you want to test the ads or the your app with children target,you can set with admob ANE easy
 ```
@@ -116,9 +97,9 @@ If you want to test the ads or the your app with children target,you can set wit
 	extraParam.isChildApp=true;//if is tagForChildDirectedTreatment,set true
         extraParam.isDesignedForFamilies=true;
         extraParam.nonPersonalizedAds=true;//if want to load non Personalized ads set true
-	Admob.getInstance().showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER,80,extraParam);
+	Admob.getInstance().showBanner("Your banner ID",AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER,80,extraParam);
 ```
-#### 8.Ad Events
+#### 7.Ad Events
 Both _Banner_ and _Interstitial_ contain the many ad events that you can
 register for.    
 Here we'll demonstrate setting ad events on a interstitial,and show interstitial when load success:
@@ -193,6 +174,8 @@ simple example
 
 
 ### 11.android permission config
+Meta Config com.google.android.gms.ads.APPLICATION_ID  is reqired from admob 17
+Please replace ca-app-pub-3940256099942544~3347511713 with your admob 
 ```
 <android>
         <manifestAdditions><![CDATA[
@@ -205,6 +188,11 @@ simple example
  <meta-data android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
 			  	   <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/>
+
+ <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
 			     </application>
 			</manifest>
 		]]></manifestAdditions>
@@ -223,7 +211,7 @@ Admob.getInstance().getScreenSize()
 <extensionID>so.cuo.platform.admob</extensionID>
 ```
 
-## change log 20180516
+## change log 20190101
 1.update admob sdk 
 2.fix bug
 3.improve fill rate

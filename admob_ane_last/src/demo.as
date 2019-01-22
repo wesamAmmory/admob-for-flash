@@ -3,10 +3,6 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
-	import flash.events.Event;
-	import flash.events.SecurityErrorEvent;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
 	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
@@ -16,8 +12,9 @@ package
 	import so.cuo.platform.admob.AdmobPosition;
 	import so.cuo.platform.admob.AdmobSize;
 	import so.cuo.platform.admob.ExtraParameter;
-
-	public class demo extends Sprite
+	
+	
+	public class Demo2 extends Sprite
 	{
 		private var admob:Admob;
 		public var appID:String;
@@ -26,14 +23,15 @@ package
 		public var nativeID:String;
 		public var videoID:String;
 		public var extraParam:ExtraParameter;
-
+		
 		public var xPosition:TextField
 		public var yPosition:TextField
 		public var bannerType:TextField
-
-		public function demo()
+		
+		public function Demo2()
 		{
 			super();
+			
 			var isIOS:Boolean=Capabilities.manufacturer.indexOf('iOS') > -1;
 			if(isIOS){
 				appID="ca-app-pub-3940256099942544~1458002511";
@@ -53,13 +51,12 @@ package
 			if (admob.supportDevice)
 			{
 				admob.initAdmobSDK(appID);
-				admob.setKeys(bannerID,fullID);
 				admob.addEventListener(AdmobEvent.onInterstitialReceive, onAdEvent);
 				admob.addEventListener(AdmobEvent.onBannerReceive, onAdEvent);
 				admob.addEventListener(AdmobEvent.onVideoLoadFail, onAdEvent);
 				admob.addEventListener(AdmobEvent.onVideoRewarded, onAdEvent);
 				admob.enableTrace=true;
-//				
+				//				
 				trace(admob.getScreenSize(), admob.getScreenSize().height);
 				log.text+="supported\n";
 			}else{
@@ -68,24 +65,23 @@ package
 			}
 			
 			extraParam=new ExtraParameter();
+			/*
 			extraParam.testDeviceID="true";
 			extraParam.isDesignedForFamilies=true;
 			extraParam.nonPersonalizedAds=true;
 			extraParam.isChildApp=true;
-			
-//			showStartAuto();
+			*/
+			//			showStartAuto();
 		}
 		
 		private function showStartAuto():void
 		{
-//			admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
-			admob.cacheInterstitial(extraParam);
-			admob.showBanner(AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
-			admob.showBannerAbsolute(AdmobSize.BANNER_320x50,0,250,null,"classicBanner");
-//			admob.setAppMuted(true);
+			admob.cacheInterstitial(fullID,extraParam);
+			admob.showBanner(bannerID,AdmobSize.BANNER_320x50,AdmobPosition.BOTTOM_CENTER);
+			admob.showBannerAbsolute(bannerID,AdmobSize.BANNER_320x50,0,250,null,"classicBanner");
 			
 		}
-		var log:TextField=new TextField();
+		private var log:TextField=new TextField();
 		
 		private function initUI():void
 		{
@@ -101,13 +97,12 @@ package
 			yPosition=ui.addButton("300", 160, 120);
 			bannerType=ui.addButton("bannerType", 300, 120);
 			
-			ui.addButton("native", 20, 240);
-			ui.addButton("hidenative", 160, 240);
 			
 			ui.addButton("interstitial", 20, 320);
 			ui.addButton("showVideo", 160, 320);
 			ui.addButton("mute", 160, 420);
-
+			ui.addButton("logEvent", 0, 420);
+			
 			xPosition.type=yPosition.type=bannerType.type=TextFieldType.INPUT;
 			xPosition.border=yPosition.border=bannerType.border=true;
 			
@@ -117,7 +112,7 @@ package
 			log.border=true;
 			this.addChild(log);
 		}
-
+		
 		private function onAdEvent(event:AdmobEvent):void
 		{
 			log.text+=event.type+event.data+"\n";
@@ -136,13 +131,14 @@ package
 				admob.setAppMuted(true);
 			}
 		}
-
-//		private var muted:Boolean=false;
+		
+		//		private var muted:Boolean=false;
 		private function onClick(label:String):void
 		{
 			
-//			trace("click flash stage-------1", stage.stageWidth, stage.stageHeight, stage.orientation);
+			//			trace("click flash stage-------1", stage.stageWidth, stage.stageHeight, stage.orientation);
 			trace("click button "+label);
+			log.appendText(label);
 			if (!admob.supportDevice)
 			{
 				trace("not support device");
@@ -182,7 +178,7 @@ package
 				{
 					adsize=AdmobSize.BANNER_STANDARD;
 				}
-			
+				
 				if (label == "hide")
 				{
 					admob.hideBanner();
@@ -190,7 +186,7 @@ package
 				}
 				if (label == "absolute")
 				{
-					admob.showBannerAbsolute(adsize, xPositionValue, yPositionValue, extraParam);
+					admob.showBannerAbsolute(bannerID,adsize, xPositionValue, yPositionValue, extraParam);
 				}
 				else if (label == "relation")
 				{
@@ -198,7 +194,7 @@ package
 						xPositionValue=9;
 					if (xPositionValue < 1)
 						xPositionValue=1;
-					admob.showBanner(adsize, xPositionValue,0, extraParam);
+					admob.showBanner(bannerID,adsize, xPositionValue,0, extraParam);
 				}
 				else if (label == "interstitial")
 				{
@@ -208,18 +204,8 @@ package
 					}
 					else
 					{
-						admob.cacheInterstitial(extraParam);
+						admob.cacheInterstitial(fullID,extraParam);
 					}
-				}
-				else if (label == "native")
-				{
-//					admob.showNativeBanner(nativeID,new AdmobSize(320,100),AdmobPosition.MIDDLE_CENTER,0);
-//					admob.showNativeBannerAbsolute(nativeID,new AdmobSize(320,132),0,260);
-				}
-				else if (label == "hidenative")
-				{
-//					admob.hideNativeBanner("nativebanner");
-//					admob.hideNativeBanner();
 				}
 				else if(label=="showVideo"){
 					if(admob.isVideoReady()){
@@ -227,6 +213,10 @@ package
 					}else{
 						admob.cacheVideo(videoID);
 					}
+				}
+				else if(label=="logEvent"){
+					//					admob.startFirebaseAnalytics();
+					//admob.logFirebaseEvent("loginUser",JSON.stringify({"name":"login","time":"1222222222222222"}));
 				}
 			}
 		}

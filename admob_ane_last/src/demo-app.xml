@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/28.0">
+<application xmlns="http://ns.adobe.com/air/application/32.0">
 
 <!-- Adobe AIR Application Descriptor File Template.
 
@@ -15,21 +15,28 @@
 
 	<!-- A universally unique application identifier. Must be unique across all AIR applications.
 	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>so.cuo.demo</id>
+	<id>so.phonegame.demo</id>
 
 	<!-- Used as the filename for the application. Required. -->
-	<filename>demo2</filename>
+	<filename>Demo2</filename>
+
+	<!-- Determines the architecture of the Windows captive app (non-Flash Builder workflows only)-->
+	<architecture/>
 
 	<!-- The name that is displayed in the AIR application installer. 
 	May have multiple values for each language. See samples or xsd schema file. Optional. -->
-	<name>demo2</name>
+	<name>Demo2</name>
 	
 	<!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
 	Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
-	An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5 . -->
+	An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5 .
+    For iOS Apps, this represents build number. -->
 	<versionNumber>1.0.0</versionNumber>
 		         
-	<!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
+	<!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. 
+     For iOS Apps, this represents application version number and format should be (<0-999>.<0-999>.<0-999>).
+     If this tag is not specified or the value is not according to the format, then this tag will be ignored 
+     and <versionNumber> will be used for application version number. Optional. -->
 	<!-- <versionLabel></versionLabel> -->
 
 	<!-- Description, displayed in the AIR application installer.
@@ -89,7 +96,7 @@
 
         <!-- The aspect ratio of the app ("portrait" or "landscape" or "any"). Optional. Mobile only. Default is the natural orientation of the device -->
 
-        <!-- <aspectRatio>landscape</aspectRatio> -->
+        <!-- <aspectRatio></aspectRatio> -->
 
         <!-- Whether the app will begin auto-orienting on launch. Optional. Mobile only. Default false -->
 
@@ -109,12 +116,11 @@
 		<!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
 		<!-- <softKeyboardBehavior></softKeyboardBehavior> -->
 
-		<!-- Display Resolution for the app (either "standard" or "high"). Optional, OSX-only. Default "standard" -->
+		<!-- Display Resolution for the app (either "standard" or "high"). Optional. Default "standard" -->
 		<!-- <requestedDisplayResolution></requestedDisplayResolution> -->
-	<autoOrients>true</autoOrients>
-        <fullScreen>true</fullScreen>
+	<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
         <visible>true</visible>
-        <aspectRatio>any</aspectRatio>
     </initialWindow>
 
 	<!-- We recommend omitting the supportedProfiles element, -->
@@ -126,7 +132,9 @@
 
 	<!-- Languages supported by application -->
 	<!-- Only these languages can be specified -->
-	<!-- <supportedLanguages>en de cs es fr it ja ko nl pl pt ru sv tr zh</supportedLanguages> -->
+	<!-- Android Native uses "in" code for indonesean language, wherein native iOS uses "id" as its language code. -->
+	<!-- We have added support of "id" in "in" code to support iOS with the same tag.-->
+	<!-- <supportedLanguages>cs da de el en es fi fr in it iw ja ko ms nb nl pl pt ru sv th tr vi zh</supportedLanguages> -->
 
 	<!-- The subpath of the standard default installation location to use. Optional. -->
 	<!-- <installFolder></installFolder> -->
@@ -142,14 +150,18 @@
 		<image32x32></image32x32>
 		<image36x36></image36x36>
 		<image40x40></image40x40>
+		<image44x44></image44x44>
 		<image48x48></image48x48>
 		<image50x50></image50x50>
 		<image57x57></image57x57>
 		<image58x58></image58x58>
 		<image60x60></image60x60>
+		<image66x66></image66x66>
 		<image72x72></image72x72>
+		<image75x75></image75x75>
 		<image76x76></image76x76>
 		<image80x80></image80x80>
+		<image87x87></image87x87>
 		<image96x96></image96x96>
 		<image100x100></image100x100>
 		<image114x114></image114x114>
@@ -157,6 +169,9 @@
 		<image128x128></image128x128>
 		<image144x144></image144x144>
 		<image152x152></image152x152>
+        <image167x167></image167x167>
+		<image180x180></image180x180>
+		<image192x192></image192x192>
 		<image512x512></image512x512>
 		<image732x412></image732x412>
 		<image1024x1024></image1024x1024>
@@ -199,6 +214,9 @@
 			
 		<!-- </fileType> -->
 	<!-- </fileTypes> -->
+    
+    <!-- A preferred GPU type (either "discrete" or "integrated") in case the app utilizes GPU. Desktop only. Optional -->
+    <!-- <gpuPreference></gpuPreference> -->
 
     <!-- iOS specific capabilities -->
 	<!-- <iPhone> -->
@@ -260,25 +278,90 @@
         <!-- <colorDepth></colorDepth> -->
         <!-- Indicates if the app contains video or not. Necessary for ordering of video planes with graphics plane, especially in Jellybean - if you app does video this must be set to true - valid values are true or false -->
         <!-- <containsVideo></containsVideo> -->
+        <!-- This app is also for Android TV (either "true" or "false"). Optional. Default is 'false' -->
+        <!-- <supportsAndroidTV></supportsAndroidTV> -->
+        <!-- Path to the image used for banner when the app is shown on TV. The banner should be a .png image of size 320*180.-->
+        <!-- <banner></banner> -->
+        <!-- Indicates if webContents (HTML/CSS/JavaScript) can be inspected in browser. Optional . Default value is 'false' -->
+        <!-- <webContentsDebuggingEnabled></webContentsDebuggingEnabled> -->
+
+         <!-- Indicates if disableMediaCodec is enabled or not. Optional . Default value is 'false' -->
+        <!-- <disableMediaCodec></disableMediaCodec> -->
+
     <!-- </android> -->
 	<!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
 
 <android>
         <manifestAdditions><![CDATA[
 			<manifest android:installLocation="auto">
-			   <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="18" />
+			    <!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
+			    <!--Removing the permission android.permission.INTERNET will have the side effect
+		of preventing you from debugging your application on your device-->
 			    <uses-permission android:name="android.permission.INTERNET"/>
-			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+			    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+			    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
+			    <!--The DISABLE_KEYGUARD and WAKE_LOCK permissions should be toggled together
+		in order to access AIR's SystemIdleMode APIs-->
+			    <!--<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>-->
+			    <!--<uses-permission android:name="android.permission.WAKE_LOCK"/>-->
+			    <!--<uses-permission android:name="android.permission.CAMERA"/>-->
+			    <!--<uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
+			    <!--The ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions should be toggled
+		together in order to use AIR's NetworkInfo APIs-->
+			    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
+			    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
+			     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 			    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-			    <application>
+			    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+			    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+			     <application>
             <meta-data android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
 			  	        <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/>
+				<receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+            
+             <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+				
+				        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            
 				</application>
 			</manifest>
 			
@@ -308,5 +391,6 @@
     </iPhone>
 <extensions>
         <extensionID>so.cuo.platform.admob</extensionID>
+    
     </extensions>
 </application>
