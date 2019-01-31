@@ -228,9 +228,8 @@ This Admob ANE  was published  since Sep, 2012, and has been downloaded more tha
 
 ## Links
 Download  https://github.com/lilili87222/admob-for-flash/archive/master.zip    
-Our Games https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8    
-donation paypal li_li_li87222@163.com     
 admob http://apps.admob.com    
+version with google firebase analysis https://github.com/lilili87222/Google-Firebase-ANE
 
 
 ## License
